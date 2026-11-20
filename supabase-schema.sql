@@ -43,3 +43,31 @@ language sql security definer set search_path = '' as $$
 $$;
 revoke execute on function public.delete_my_account() from public, anon;
 grant execute on function public.delete_my_account() to authenticated;
+
+-- Pre-loaded plans: a plan saved here for a username is copied into that person's
+-- profile the first time they sign up with that username (claimed once).
+create table if not exists public.seed_plans(
+  username text primary key,
+  answers jsonb,
+  plan jsonb not null,
+  claimed_at timestamptz
+);
+alter table public.seed_plans enable row level security;
+revoke all on public.seed_plans from anon, authenticated;
+
+create or replace function public.claim_seed_plan() returns boolean
+language plpgsql security definer set search_path = '' as $$
+declare u text; r public.seed_plans%rowtype;
+begin
+  if auth.uid() is null then return false; end if;
+  select lower(split_part(email, '@', 1)) into u from auth.users where id = auth.uid();
+  select * into r from public.seed_plans where username = u and claimed_at is null for update;
+  if not found then return false; end if;
+  insert into public.profiles(id, display_name, answers, plan)
+    values (auth.uid(), coalesce(r.answers->>'name', u), r.answers, r.plan)
+    on conflict (id) do update set answers = excluded.answers, plan = excluded.plan;
+  update public.seed_plans set claimed_at = now() where username = u;
+  return true;
+end $$;
+revoke execute on function public.claim_seed_plan() from public, anon;
+grant execute on function public.claim_seed_plan() to authenticated;

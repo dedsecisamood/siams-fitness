@@ -294,6 +294,12 @@ function blocked(tags,food){
 }
 
 G.B1={EXI,EQN,NEW_EX,WEEK,DAY_SHORT,HABITS,HABIT_ORDER,REST_TEXT,RECIPE_TAGS,FOOD_TAGS,SPLIT_NAME,buildPlan,targets,blocked,
+  /* Username + PIN login, mapped onto Supabase email/password */
+  userEmail(u){return String(u||'').trim().toLowerCase()+'@users.better1.app'},
+  userFromEmail(e){return String(e||'').split('@')[0]},
+  pinPass(p){return 'b1pin-'+String(p||'').trim()},
+  okUser(u){return /^[A-Za-z0-9_.]{3,20}$/.test(String(u||'').trim())},
+  okPin(p){return /^[0-9]{4,6}$/.test(String(p||'').trim())},
   /* Supabase connection (keys come from config.js) */
   client(){
     if(G.__b1sb)return G.__b1sb;

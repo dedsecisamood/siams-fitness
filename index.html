@@ -541,6 +541,10 @@ footer{border-top:1px solid var(--line);padding:40px 0 50px}
   .pv-t b{font-size:20px}
 }
 
+.hero-kick{display:inline-flex;align-items:center;gap:10px;padding:8px 15px 8px 12px;margin-bottom:22px;border-radius:999px;background:rgba(255,255,255,.05);border:1px solid var(--line2);font-family:var(--mono);font-size:12.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--ink2)}
+.hero-kick i{width:8px;height:8px;border-radius:50%;background:#ff6a3d;animation:kpulse 1.8s infinite}
+@keyframes kpulse{0%{box-shadow:0 0 0 0 rgba(255,106,61,.6)}70%{box-shadow:0 0 0 10px rgba(255,106,61,0)}100%{box-shadow:0 0 0 0 rgba(255,106,61,0)}}
+.hero-note{margin-top:16px;font-size:14px;color:var(--muted)}
 /* responsive */
 @media (max-width:1080px){
   .nav-links{display:none}
@@ -620,17 +624,17 @@ footer{border-top:1px solid var(--line);padding:40px 0 50px}
 <header class="nav" id="nav">
   <a class="brand" href="#top" aria-label="Better 1% home"><img src="logo.webp" alt=""><span>Better <b>1%</b></span></a>
   <nav class="nav-links" aria-label="Sections">
-    <a href="#why">Why 1%</a><a href="#week">How it works</a><a href="#inside">The app</a><a href="#fuel">Food</a><a href="#roadmap">12 months</a><a href="#faq">FAQ</a>
+    <a href="#why">Why 1%</a><a href="#week">Your plan</a><a href="#inside">The app</a><a href="#fuel">Food</a><a href="#roadmap">12 months</a><a href="#faq">FAQ</a>
   </nav>
   <div style="display:flex;gap:8px;align-items:center">
     <a class="btn btn-ghost btn-sm" href="#login" data-auth="out">Log in</a>
-    <a class="btn btn-primary btn-sm mag" href="#start" data-auth="out">Build my plan <span class="arr">→</span></a>
+    <a class="btn btn-primary btn-sm mag" href="#start" data-auth="out">Start free <span class="arr">→</span></a>
     <a class="btn btn-primary btn-sm mag" href="app.html" data-auth="in" hidden>Open my app <span class="arr">→</span></a>
     <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span><span></span></button>
   </div>
 </header>
 <nav class="mmenu" id="mmenu" aria-label="Mobile">
-  <a href="#why">Why 1%</a><a href="#week">How it works</a><a href="#inside">The app</a><a href="#fuel">Food</a><a href="#login" data-auth="out">Log in</a><a href="#start" class="grad" data-auth="out">Build my plan →</a><a href="app.html" class="grad" data-auth="in" hidden>Open my app →</a>
+  <a href="#why">Why 1%</a><a href="#week">Your plan</a><a href="#inside">The app</a><a href="#fuel">Food</a><a href="#login" data-auth="out">Log in</a><a href="#start" class="grad" data-auth="out">Start free →</a><a href="app.html" class="grad" data-auth="in" hidden>Open my app →</a>
 </nav>
 
 <main id="top">
@@ -642,13 +646,15 @@ footer{border-top:1px solid var(--line);padding:40px 0 50px}
   <div class="wrap">
     <div class="hero-grid">
       <div>
+        <span class="hero-kick fade-in" style="animation-delay:.2s"><i></i>Not tomorrow. Today.</span>
         <h1><span class="line"><span>Better</span></span><span class="line"><span class="bigv">1%<span class="serif"> daily.</span></span></span></h1>
-        <p class="lede fade-in" style="animation-delay:1.55s">A training plan built around you: your days, your gym, your food. Answer 10 quick questions and get your split, every exercise explained, and targets that fit. Then just <b>one more rep, one more egg, one more hour of sleep. Every day.</b></p>
+        <p class="lede fade-in" style="animation-delay:1.55s">Stop watching transformations. Start yours. Answer 10 quick questions and get a plan built for your days, your gym and your kitchen. Every rep explained. Every target set. Then do the only thing that has ever worked: <b>one more rep than last time. Every single day.</b></p>
         <div class="cta-row fade-in" style="animation-delay:1.7s">
-          <a class="btn btn-hot mag" href="#start" data-auth="out">Build my plan · free <span class="arr">→</span></a>
+          <a class="btn btn-hot mag" href="#start" data-auth="out">Build my plan, free <span class="arr">→</span></a>
           <a class="btn btn-hot mag" href="app.html" data-auth="in" hidden>Open my app <span class="arr">→</span></a>
           <a class="btn btn-ghost mag" href="#login" data-auth="out">Log in</a>
         </div>
+        <p class="hero-note fade-in" style="animation-delay:1.85s">Free forever. No ads. No email. Just a username and a PIN.</p>
       </div>
       <div class="phone-stage" id="stage" aria-hidden="true">
         <div class="phone" id="phone">
@@ -656,7 +662,7 @@ footer{border-top:1px solid var(--line);padding:40px 0 50px}
             <div class="island"></div>
             <div class="sbar"><span id="clock">9:41</span><span>●●● ▮</span></div>
             <div class="scr-h" id="scrDate">Saturday</div>
-            <div class="scr-t">Good morning</div>
+            <div class="scr-t">Let’s get it</div>
             <div class="scard">
               <div class="gauges">
                 <div><svg viewBox="0 0 62 62"><circle cx="31" cy="31" r="26" stroke="#fa114f33"/><circle class="mr" cx="31" cy="31" r="26" stroke="#fa114f" stroke-dasharray="163.4" stroke-dashoffset="163.4" data-to="32.7"/><text x="31" y="36" text-anchor="middle">4/5</text></svg><b style="color:#fa114f">Train</b><span>sessions</span></div>
@@ -681,11 +687,11 @@ footer{border-top:1px solid var(--line);padding:40px 0 50px}
       </div>
     </div>
     <div class="stats" data-r>
-      <div class="stat"><b>2–6</b><span>training days, your choice</span></div>
-      <div class="stat"><b data-count="50">0</b><span>exercises, all explained</span></div>
-      <div class="stat"><b>30–75<small style="font-size:.5em"> min</small></b><span>per session</span></div>
-      <div class="stat"><b data-count="0">0</b><span>ads, ever</span></div>
-      <div class="stat"><b data-count="0">0</b><span>supplements needed</span></div>
+      <div class="stat"><b>2–6</b><span>days a week. You pick.</span></div>
+      <div class="stat"><b data-count="50">0</b><span>exercises, drawn and explained</span></div>
+      <div class="stat"><b>30–75<small style="font-size:.5em"> min</small></b><span>and you’re done</span></div>
+      <div class="stat"><b data-count="0">0</b><span>ads. Ever.</span></div>
+      <div class="stat"><b data-count="0">0</b><span>supplements to buy</span></div>
     </div>
   </div>
 </section>
@@ -694,16 +700,16 @@ footer{border-top:1px solid var(--line);padding:40px 0 50px}
 <div class="marquee" aria-hidden="true">
   <div class="mq-skew" id="mqskew">
     <div class="mq-row"><span>Push</span><span class="o">Pull</span><span class="s">legs</span><span>Upper</span><span class="o">Shoulders</span><span class="s">rest</span><span>Push</span><span class="o">Pull</span><span class="s">legs</span><span>Upper</span><span class="o">Shoulders</span><span class="s">rest</span></div>
-    <div class="mq-row rev"><span class="o">1% better</span><span>Sleep</span><span class="s">one more rep</span><span class="o">Barishal</span><span>Protein</span><span class="s">never miss twice</span><span class="o">1% better</span><span>Sleep</span><span class="s">one more rep</span><span class="o">Barishal</span><span>Protein</span><span class="s">never miss twice</span></div>
+    <div class="mq-row rev"><span class="o">You can do it</span><span>Show up</span><span class="s">one more rep</span><span class="o">Not tomorrow</span><span>Today</span><span class="s">never miss twice</span><span class="o">You can do it</span><span>Show up</span><span class="s">one more rep</span><span class="o">Not tomorrow</span><span>Today</span><span class="s">never miss twice</span></div>
   </div>
 </div>
 
 <!-- WHY 1% -->
 <section class="method" id="why">
   <div class="wrap" style="padding-top:clamp(100px,12vw,160px)">
-    <span class="kicker mono" data-r>Why 1%</span>
+    <span class="kicker mono" data-r>The math nobody shows you</span>
     <h2 class="words" data-split>1% a day is 37 times<br><span class="serif grad">in one year.</span></h2>
-    <p class="sub" data-r style="--d:.2s">1.01 to the power of 365 is 37.8. Skip the 1% and 0.99 to the power of 365 is 0.03. Small days add up, in both directions. Scroll and watch the year happen.</p>
+    <p class="sub" data-r style="--d:.2s">Get 1% better every day and you end the year 37.8 times better. Slip 1% a day and you end it at 0.03. Nobody notices your first 100 days. Everybody notices day 365. Scroll and watch the year happen.</p>
   </div>
   <div class="vpin" id="vpin">
     <div class="vstick">
@@ -726,9 +732,9 @@ footer{border-top:1px solid var(--line);padding:40px 0 50px}
           <div class="ratio"><b id="ratio">1.00×</b><span class="mono" id="dayLbl">Day 0 of 365</span></div>
         </div>
         <div class="steps" id="steps">
-          <div class="step on"><span class="num">01 · TRAIN</span><h3>One more rep</h3><p>Your sessions, on your days. Beat last week by one rep or 2.5 kg. That's the whole training plan. No ego lifting, no random workouts.</p><div class="bar"><i></i></div></div>
-          <div class="step"><span class="num">02 · EAT</span><h3>One more egg</h3><p>Your protein target from dal, eggs, chicken, fish or soya chunks. Less oil, fewer outside snacks, no powder. A calorie target that matches your goal.</p><div class="bar"><i></i></div></div>
-          <div class="step"><span class="num">03 · RECOVER</span><h3>One more hour</h3><p>7+ hours of sleep, 7,000 steps, and one rule worth never breaking: never miss twice. Work, study and training all run on the same battery.</p><div class="bar"><i></i></div></div>
+          <div class="step on"><span class="num">01 · TRAIN</span><h3>One more rep</h3><p>Beat last week by one rep or 2.5 kg. That's the whole game. No ego lifts. No random workout from a reel. Just a number that keeps going up.</p><div class="bar"><i></i></div></div>
+          <div class="step"><span class="num">02 · EAT</span><h3>One more egg</h3><p>Hit your protein with real food: eggs, dal, chicken, fish, soya. Less oil, fewer fried snacks, zero powder. Calories set for your goal, not your friend's.</p><div class="bar"><i></i></div></div>
+          <div class="step"><span class="num">03 · RECOVER</span><h3>One more hour</h3><p>Muscle is built in bed, not in the gym. Sleep 7+ hours, walk 7,000 steps, and live by one rule: never miss twice. Classes, work and lifting all run on the same battery.</p><div class="bar"><i></i></div></div>
         </div>
       </div>
     </div>
@@ -740,10 +746,10 @@ footer{border-top:1px solid var(--line);padding:40px 0 50px}
   <div class="wrap">
     <div class="head-split">
       <div>
-        <span class="kicker mono" data-r>How it works</span>
+        <span class="kicker mono" data-r>Try it right here</span>
         <h2 class="words" data-split>Your days. Your gym.<br><span class="serif grad">Your plan.</span></h2>
       </div>
-      <p class="sub" data-r style="--d:.15s;margin-top:0;max-width:420px">Pick how many days you can train and where. The plan changes instantly. Tap a day to see each exercise, the equipment, the form cue and what to avoid.</p>
+      <p class="sub" data-r style="--d:.15s;margin-top:0;max-width:420px">Got 3 days or 6? A full gym or just a backpack? Tap below and watch the plan rebuild itself. Every day shows the moves, the equipment, the cue a coach would shout, and the mistakes to skip.</p>
     </div>
     <div class="demo-ctl" data-r>
       <div class="seg2" id="demoDays" role="group" aria-label="Training days per week"><span class="mono muted">Days</span><button data-n="2">2</button><button data-n="3">3</button><button data-n="4">4</button><button data-n="5" aria-pressed="true">5</button><button data-n="6">6</button></div>
@@ -760,16 +766,16 @@ footer{border-top:1px solid var(--line);padding:40px 0 50px}
     <div class="head-split">
       <div>
         <span class="kicker mono" data-r>The app</span>
-        <h2 class="words" data-split>Everything you need.<br><span class="serif grad">Nothing you don't.</span></h2>
+        <h2 class="words" data-split>Your coach,<br><span class="serif grad">in your pocket.</span></h2>
       </div>
-      <a class="btn btn-ghost mag" href="#start" data-r>Build my plan <span class="arr">→</span></a>
+      <a class="btn btn-ghost mag" href="#start" data-r>Get my coach <span class="arr">→</span></a>
     </div>
     <div class="bento">
       <article class="tile t-machine" data-r>
         <div>
           <span class="mono">Exercise library</span>
           <h3>Every machine, drawn.<br>Every muscle, mapped.</h3>
-          <p>Find the machine, set the seat, see which muscle should work. Step-by-step form, a starting weight and a backup if it's taken.</p>
+          <p>Never stand around looking lost again. Find the machine, set the seat, feel the right muscle. Step-by-step form, a starting weight, and a backup move when someone is hogging it.</p>
         </div>
         <div>
           <div class="mach">
@@ -782,7 +788,7 @@ footer{border-top:1px solid var(--line);padding:40px 0 50px}
       <article class="tile t-log" data-r style="--d:.08s">
         <span class="mono">Workout logger</span>
         <h3>Beat last week by one rep.</h3>
-        <p>Every set goes in. The app shows what you lifted last time and flags a new best.</p>
+        <p>Log every set. The app remembers what you did last time, so you always know the number to beat.</p>
         <div class="logger" id="logger">
           <div class="lhead"><span>SET</span><span>KG</span><span>REPS</span><span></span></div>
         </div>
@@ -814,23 +820,23 @@ footer{border-top:1px solid var(--line);padding:40px 0 50px}
           <path id="cLine" class="l" stroke="url(#gHot)"/>
           <circle id="cDot" r="5" fill="#ff9f43" opacity="0" style="transition:opacity .4s 2s"/>
         </svg>
-        <div class="hstat"><span>Waist goal</span><span><b>82–86 cm</b></span></div>
+        <div class="hstat"><span>16 weeks of check-ins</span><span><b>−4.5 kg</b></span></div>
       </article>
       <article class="tile t-timer" data-r>
         <span class="mono">Rest timer</span>
         <div class="timer">
           <svg viewBox="0 0 150 150"><circle cx="75" cy="75" r="66" stroke="rgba(255,255,255,.07)"/><circle id="tArc" cx="75" cy="75" r="66" stroke="url(#gHot)" stroke-dasharray="414.7" stroke-dashoffset="0" style="transform:rotate(-90deg);transform-origin:50% 50%"/><text class="tnum" x="75" y="84" text-anchor="middle" id="tNum">2:00</text></svg>
-          <div><h3>Rest. Don't scroll.</h3><p>2 minutes on the big lifts, 90 seconds on the rest. The timer starts when you tick a set and buzzes when it's time.</p></div>
+          <div><h3>Rest. Don't scroll.</h3><p>2 minutes on the big lifts, 90 seconds on the rest. Tick a set and the timer starts. When it buzzes, you go.</p></div>
         </div>
       </article>
       <article class="tile t-guide" data-r style="--d:.08s">
         <span class="mono">Beginner's guide</span>
-        <h3>Your first weeks, decoded.</h3>
+        <h3>First-day nerves? Handled.</h3>
         <ul class="glist">
-          <li><span class="k">1</span><span><b>Find the machines.</b> A checklist for walking the gym on day one.</span></li>
-          <li><span class="k">2</span><span><b>Start light.</b> A weight you can do 15 clean reps with. Add later.</span></li>
-          <li><span class="k">3</span><span><b>Learn the words.</b> RIR, deload, superset, in plain English.</span></li>
-          <li><span class="k">4</span><span><b>Make gym friends.</b> Same time, same faces. Ask between sets, never during.</span></li>
+          <li><span class="k">1</span><span><b>Find the machines.</b> A day-one checklist so you never look lost.</span></li>
+          <li><span class="k">2</span><span><b>Start light.</b> A weight you could move for 15 clean reps. Ego can wait.</span></li>
+          <li><span class="k">3</span><span><b>Learn the language.</b> RIR, deload, superset. Plain English, zero bro science.</span></li>
+          <li><span class="k">4</span><span><b>Make gym friends.</b> Same time, same faces. Talk between sets, never during.</span></li>
         </ul>
       </article>
     </div>
@@ -844,7 +850,7 @@ footer{border-top:1px solid var(--line);padding:40px 0 50px}
       <div>
         <span class="kicker mono" data-r>Food</span>
         <h2 class="words" data-split>Built from what's<br><span class="serif grad">already at home.</span></h2>
-        <p class="sub" data-r style="--d:.15s">Oats, honey, nuts, eggs, dal, rice and roti. No whey, no shop-bought shakes. Ten recipes that hit your protein with food from a normal Bangladeshi kitchen, filtered for what you eat.</p>
+        <p class="sub" data-r style="--d:.15s">Eggs, dal, oats, rice, roti, a handful of nuts. That's the shopping list. Ten easy recipes that hit your protein from a normal Bangladeshi kitchen, filtered for how you eat. No whey. No overpriced shakes. No excuses.</p>
       </div>
       <div class="macro" data-r style="--d:.2s">
         <div><b>1.6</b><span>g protein per kg of body weight</span></div>
@@ -862,7 +868,7 @@ footer{border-top:1px solid var(--line);padding:40px 0 50px}
 
 <!-- MANIFESTO -->
 <section class="mani" id="mani">
-  <div class="wrap"><p id="maniText">You don't need a perfect week. You need <span class="serif">fifty-two</span> good ones. Work, study, family, the gym. Same rule for all of it: show up, do a little more than last time, sleep, repeat. Better 1%.</p></div>
+  <div class="wrap"><p id="maniText">Motivation gets you to the gym once. Habits get you there for a year. You don't need a perfect week. You need <span class="serif">fifty-two</span> good ones. Show up. Do one more. Sleep. Repeat. You can do it.</p></div>
 </section>
 
 <!-- ROADMAP -->
@@ -870,7 +876,7 @@ footer{border-top:1px solid var(--line);padding:40px 0 50px}
   <div class="wrap">
     <span class="kicker mono" data-r>12 months</span>
     <h2 class="words" data-split>One year.<br><span class="serif grad">Four chapters.</span></h2>
-    <p class="sub" data-r style="--d:.15s">Each chapter has a gate. Pass it and the plan moves up a gear. By this time next year, Day 1 you should look like a different person.</p>
+    <p class="sub" data-r style="--d:.15s">Every chapter ends with a gate. Pass it and your plan levels up. Twelve months from now, the person in your Day 1 photo won't recognize you.</p>
     <div class="road" id="road">
       <div class="road-line"><i id="roadFill"></i></div>
     </div>
@@ -880,7 +886,7 @@ footer{border-top:1px solid var(--line);padding:40px 0 50px}
 <!-- FLAGS -->
 <section class="sec" id="flags" style="padding-top:0">
   <div class="wrap">
-    <span class="kicker mono" data-r>Green flags, red flags</span>
+    <span class="kicker mono" data-r>Read the signs</span>
     <h2 class="words" data-split>How you'll know<br><span class="serif grad">it's working.</span></h2>
     <div class="flags" style="margin-top:56px">
       <div class="flagcol g" data-r>
@@ -891,7 +897,7 @@ footer{border-top:1px solid var(--line);padding:40px 0 50px}
           <li><span>03</span>You sleep well and wake up rested</li>
           <li><span>04</span>Soreness lasts a day or two, not five</li>
           <li><span>05</span>You look forward to training days</li>
-          <li><span>06</span>Shirts get tighter on the shoulders, looser at the waist</li>
+          <li><span>06</span>Shirts get tight on the shoulders, loose at the waist</li>
         </ul>
       </div>
       <div class="flagcol r" data-r style="--d:.1s">
@@ -901,7 +907,7 @@ footer{border-top:1px solid var(--line);padding:40px 0 50px}
           <li><span>02</span>Strength dropping two weeks in a row</li>
           <li><span>03</span>Losing more than 1 kg a week</li>
           <li><span>04</span>Dreading every session and feeling flat for days</li>
-          <li><span>05</span>Ego lifting: swinging, bouncing, half reps</li>
+          <li><span>05</span>Ego lifting: swinging, bouncing, half reps for the camera</li>
           <li><span>06</span>Missing two days in a row</li>
         </ul>
       </div>
@@ -913,17 +919,18 @@ footer{border-top:1px solid var(--line);padding:40px 0 50px}
 <section class="sec" id="faq" style="padding-top:0">
   <div class="wrap faq">
     <div>
-      <span class="kicker mono" data-r>Questions</span>
+      <span class="kicker mono" data-r>Real questions</span>
       <h2 class="words" data-split>Asked and<br><span class="serif grad">answered.</span></h2>
     </div>
     <div data-r>
-      <details class="qa"><summary>Is it free?<span class="pm"></span></summary><div class="ans">Yes. Better 1% is free, with no ads. It's in early testing with a small group, so expect it to keep improving.</div></details>
-      <details class="qa"><summary>How is my plan made?<span class="pm"></span></summary><div class="ans">From your answers: how many days you can train, how long, where, your experience, any injuries, and what you eat. Each day uses proven exercises for your equipment, trains every muscle about twice a week, and starts easy so you learn the movements first.</div></details>
-      <details class="qa"><summary>No protein powder? Really?<span class="pm"></span></summary><div class="ans">Not needed. Eggs, dal, chola, soya chunks, chicken, fish, milk, oats and peanuts get most people to their target. The app has ten recipes with 16–34 g of protein each, filtered for what you eat.</div></details>
-      <details class="qa"><summary>What if I miss a day?<span class="pm"></span></summary><div class="ans">Do the next session in order the next time you train. Never cram two into one day. Missing once is fine. Missing twice starts a pattern, so that's the line.</div></details>
-      <details class="qa"><summary>Who can see my data?<span class="pm"></span></summary><div class="ans">Only you. Your account is protected so nobody else can read your plan or logs. We only ask for what your plan needs, and you can delete your account and every log at any time in Settings.</div></details>
-      <details class="qa"><summary>I have an injury. Is this safe?<span class="pm"></span></summary><div class="ans">Tell us in the questions and your plan avoids the riskiest exercises for that area. Better 1% is general fitness guidance, not medical advice. If something hurts, stop, and see a doctor or physiotherapist.</div></details>
-      <details class="qa"><summary>How do I put it on my phone?<span class="pm"></span></summary><div class="ans">Open the app in Safari or Chrome and choose <b>Add to Home Screen</b>. It opens full-screen like a normal app, and your logs sync to your account on every device.</div></details>
+      <details class="qa"><summary>Is it really free?<span class="pm"></span></summary><div class="ans">Yes. Free, no ads, no catch. We're testing with a small crew right now, so it gets better every week. Just like you.</div></details>
+      <details class="qa"><summary>How is my plan made?<span class="pm"></span></summary><div class="ans">From your answers: how many days you can train, for how long, where, your experience, any injuries and what you eat. Every day uses proven moves for your equipment, hits each muscle about twice a week, and starts easy so you learn the form first.</div></details>
+      <details class="qa"><summary>No protein powder? For real?<span class="pm"></span></summary><div class="ans">For real. Eggs, dal, chola, soya chunks, chicken, fish, milk, oats and peanuts get most people to their target. Ten recipes, 16 to 34 g of protein each, filtered for what you eat.</div></details>
+      <details class="qa"><summary>I missed a day. Now what?<span class="pm"></span></summary><div class="ans">Nothing dramatic. Do the next session in order the next time you train. Never cram two into one day. Miss once, that's life. Miss twice, that's a habit. That's the line.</div></details>
+      <details class="qa"><summary>Who can see my data?<span class="pm"></span></summary><div class="ans">Only you. You log in with your own username and PIN, and your plan and logs live in your account. Delete everything any time in Settings.</div></details>
+      <details class="qa"><summary>I forgot my PIN.<span class="pm"></span></summary><div class="ans">Ask Siam to reset it. There's no email on your account, so it's done by hand.</div></details>
+      <details class="qa"><summary>I have an injury. Is this safe?<span class="pm"></span></summary><div class="ans">Tell us in the questions and your plan skips the riskiest moves for that area. Better 1% is general fitness guidance, not medical advice. If something hurts, stop, and see a doctor or physio.</div></details>
+      <details class="qa"><summary>How do I put it on my phone?<span class="pm"></span></summary><div class="ans">Open the app in Safari or Chrome and choose <b>Add to Home Screen</b>. It opens full-screen like a real app, and your logs sync to your account on every device.</div></details>
     </div>
   </div>
 </section>
@@ -932,10 +939,10 @@ footer{border-top:1px solid var(--line);padding:40px 0 50px}
 <section class="final" id="begin">
   <div class="aurora" aria-hidden="true"><div class="blob b1"></div><div class="blob b3"></div></div>
   <div class="wrap">
-    <h2 class="words" data-split>Day one<br><span class="serif grad">is today.</span></h2>
-    <p class="sub" data-r style="--d:.2s">Ten questions, two minutes. Your plan is ready before your tea gets cold.</p>
+    <h2 class="words" data-split>Not tomorrow.<br><span class="serif grad">Today.</span></h2>
+    <p class="sub" data-r style="--d:.2s">Ten questions. Two minutes. Your plan is ready before your tea gets cold. The hardest rep is the first one, and you can do it.</p>
     <div class="cta-row" data-r style="--d:.3s;margin-top:34px">
-      <a class="btn btn-hot mag" href="#start" data-auth="out">Build my plan · free <span class="arr">→</span></a>
+      <a class="btn btn-hot mag" href="#start" data-auth="out">Start day one <span class="arr">→</span></a>
       <a class="btn btn-hot mag" href="app.html" data-auth="in" hidden>Open my app <span class="arr">→</span></a>
       <a class="btn btn-ghost mag" href="#login" data-auth="out">Log in</a>
     </div>
@@ -952,8 +959,8 @@ footer{border-top:1px solid var(--line);padding:40px 0 50px}
   <div class="wrap">
     <div class="foot">
       <a class="brand" href="#top"><img src="logo.webp" alt=""><span>Better <b>1%</b></span></a>
-      <nav><a href="#why">Why 1%</a><a href="#week">How it works</a><a href="#fuel">Food</a><a href="#faq">FAQ</a><a href="#login">Log in</a></nav>
-      <span>Made in Bangladesh · © <span id="yr">2026</span></span>
+      <nav><a href="#why">Why 1%</a><a href="#week">Your plan</a><a href="#fuel">Food</a><a href="#faq">FAQ</a><a href="#login">Log in</a></nav>
+      <span>Made by <b>Abdullah Siam</b> · © <span id="yr">2026</span></span>
     </div>
     <div class="giant" aria-hidden="true">BETTER 1%</div>
   </div>
@@ -965,14 +972,14 @@ footer{border-top:1px solid var(--line);padding:40px 0 50px}
     <button class="wx" type="button" data-close aria-label="Close">×</button>
     <img src="logo.webp" alt="">
     <h3 id="aTitle">Welcome back</h3>
-    <p id="aSub">Log in to see your plan</p>
+    <p id="aSub">Log in with your username and PIN.</p>
     <form id="aForm" novalidate>
-      <label class="fl" id="aEmailWrap">Email<input type="email" id="aEmail" autocomplete="email" required></label>
-      <label class="fl" id="aPassWrap">Password<input type="password" id="aPass" autocomplete="current-password" minlength="8" required></label>
+      <label class="fl" id="aEmailWrap">Username<input type="text" id="aEmail" autocomplete="username" autocapitalize="off" spellcheck="false" maxlength="20" required></label>
+      <label class="fl" id="aPassWrap">PIN<input type="password" id="aPass" inputmode="numeric" autocomplete="current-password" maxlength="6" required></label>
       <p class="ferr" id="aErr" role="alert"></p>
       <button class="btn btn-hot wide" type="submit" id="aBtn">Log in</button>
     </form>
-    <div class="alinks"><a href="#" id="aForgot">Forgot password?</a><a href="#start" id="aNew">New here? Build my plan</a></div>
+    <div class="alinks"><a href="#" id="aForgot">Forgot PIN?</a><a href="#start" id="aNew">New here? Start free</a></div>
   </div>
 </div>
 
@@ -1093,13 +1100,13 @@ function paintDays(){
 }
 function renderDay(d){const id=wid(d),c=colorOf(d);panel.style.setProperty('--c',c);
   if(id!=='rest'){const D=demo.workouts[id];
-    return `<div class="p-head"><div><span class="mono muted">${FULL[d]} · example plan</span><h3>${esc(D.title)}</h3><div class="p-meta"><span class="chip">${esc(D.focus)}</span><span class="chip">~${D.mins} min</span><span class="chip">${D.ex.length} exercises</span></div></div>
-      <a class="btn btn-primary mag" href="#start">Build my own plan <span class="arr">→</span></a></div>
+    return `<div class="p-head"><div><span class="mono muted">${FULL[d]} · sample plan</span><h3>${esc(D.title)}</h3><div class="p-meta"><span class="chip">${esc(D.focus)}</span><span class="chip">~${D.mins} min</span><span class="chip">${D.ex.length} exercises</span></div></div>
+      <a class="btn btn-primary mag" href="#start">Make this mine <span class="arr">→</span></a></div>
       <div class="p-body"><div class="exlist">${D.ex.map((e,i)=>{const x=B1.EXI[e.k];return `<details class="ex" style="--i:${i};--c:${c}"${i===0?' open':''}><summary><span class="n">${i+1}</span><span><span class="nm">${esc(x.n)}</span>${e.main?'<span class="badge">KEY LIFT</span>':''}${e.lat?'<span class="badge" style="background:rgba(30,216,245,.12);color:#1ed8f5">WIDTH</span>':''}<span class="eqn">${esc(B1.EQN[x.eq]||'')}</span></span><span class="rx">${x.r[0]}–${x.r[1]} ${/Reps are seconds/.test(x.c)?'sec':'reps'}<em>rest ${fmtRest(x.rest||90)}</em></span></summary><div class="cue"><b>Form cue:</b> ${esc(x.c)}</div></details>`}).join('')}</div>
       <div class="side"><div class="box warm"><h4>Warm-up</h4><ul>${li(D.warm)}</ul></div><div class="box do"><h4>Do</h4><ul>${li(D.dos)}</ul></div><div class="box dont"><h4>Don't</h4><ul>${li(D.donts)}</ul></div></div></div>`}
   const R=d===demo.checkDay?B1.REST_TEXT.check:B1.REST_TEXT.active;
-  return `<div class="p-head"><div><span class="mono muted">${FULL[d]} · example plan</span><h3>${esc(R.title)}</h3><div class="p-meta"><span class="chip">${esc(R.short)}</span></div></div>
-    <a class="btn btn-ghost mag" href="#start">Build my own plan <span class="arr">→</span></a></div>
+  return `<div class="p-head"><div><span class="mono muted">${FULL[d]} · sample plan</span><h3>${esc(R.title)}</h3><div class="p-meta"><span class="chip">${esc(R.short)}</span></div></div>
+    <a class="btn btn-ghost mag" href="#start">Make this mine <span class="arr">→</span></a></div>
     <div class="p-body"><div class="exlist">${R.todo.map((t,i)=>`<details class="ex" style="--i:${i};--c:#a3f04a" open><summary><span class="n">✓</span><span class="nm" style="font-weight:500">${esc(t)}</span></summary></details>`).join('')}</div>
     <div class="side"><div class="box do"><h4>Do</h4><ul>${li(R.dos)}</ul></div><div class="box dont"><h4>Don't</h4><ul>${li(R.donts)}</ul></div></div></div>`}
 let cur=null;
@@ -1189,114 +1196,111 @@ const mws=$$('.mw',mani);
 
 /* ---------- roadmap ---------- */
 const PH=[
- {n:'Foundation',when:'Weeks 1–4',lines:['2 sets per exercise, stop 3–4 reps short','Learn every movement with light weight','Food: start with 3 simple habits'],gate:'Gate: your form feels solid'},
- {n:'Build',when:'Weeks 5–13',lines:['3 sets on your first two lifts','Stop 2 reps short','Hit your calorie and protein targets most days','Week 13: first easy week (deload)'],gate:'Gate: lifts rising most weeks'},
- {n:'Progress',when:'Months 4–6',lines:['Stop 1–2 reps short','Add sets where you are lagging','Adjust calories to your goal','Easy week every 8–10 weeks'],gate:'Gate: steady progress on the scale or tape'},
- {n:'Level up',when:'Months 7–12',lines:['Chase new bests on every key lift','Rebuild your plan with fresh answers','Keep the habits that stuck','Review the whole year'],gate:'Then: a new plan for year two'}];
+ {n:'Foundation',when:'Weeks 1–4',lines:['2 sets per exercise, stop 3 to 4 reps short','Learn every move with light weight','Food: just 3 habits to start'],gate:'Gate: your form feels locked in'},
+ {n:'Build',when:'Weeks 5–13',lines:['3 sets on your first two lifts','Stop 2 reps short','Hit your calories and protein most days','Week 13: an easy week to recharge'],gate:'Gate: lifts going up most weeks'},
+ {n:'Progress',when:'Months 4–6',lines:['Stop 1 to 2 reps short','Extra sets where you lag behind','Tune your calories to your goal','Easy week every 8 to 10 weeks'],gate:'Gate: the scale or the tape is moving'},
+ {n:'Level up',when:'Months 7–12',lines:['Chase new bests on every key lift','Rebuild your plan with fresh answers','Keep the habits that stuck','Look back at Day 1. Smile.'],gate:'Then: year two starts stronger'}];
 $('#road').insertAdjacentHTML('beforeend',PH.map((p,i)=>`<div class="phase"><span class="node"></span><span class="big">0${i+1}</span><div class="pcard" data-r><span class="when">${p.when}</span><h3>${p.n}</h3><ul>${p.lines.map(l=>`<li>${esc(l)}</li>`).join('')}</ul><div class="gate">${esc(p.gate)}</div></div></div>`).join(''));
 $$('#road [data-r]').forEach(el=>io.observe(el));
 const road=$('#road'),roadFill=$('#roadFill'),phases=$$('.phase',road);
 
 /* ---------- accounts (Supabase) ---------- */
 const sb=B1.client();
-const BASE=location.origin+location.pathname.replace(/[^/]*$/,'');
 const toast2=(m,ms=3200)=>{const t=$('#toast2');t.textContent=m;t.classList.add('show');clearTimeout(t._t);t._t=setTimeout(()=>t.classList.remove('show'),ms)};
-let SESSION=null,PROFILE=null;
+let SESSION=null;
 const setAuthUI=()=>{$$('[data-auth]').forEach(el=>el.hidden=(el.dataset.auth==='in')!==!!SESSION)};
 const store={get(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}},del(k){try{localStorage.removeItem(k)}catch(e){}}};
 const niceErr=e=>{const m=String(e&&(e.message||e)||'');
-  if(/already registered|already exists/i.test(m))return 'That email already has an account. Log in instead.';
-  if(/invalid login|invalid credentials/i.test(m))return 'Wrong email or password.';
-  if(/rate limit|too many|429/i.test(m))return 'Too many tries. Wait a few minutes and try again.';
+  if(/already registered|already exists/i.test(m))return 'That username is taken. Try another one.';
+  if(/invalid login|invalid credentials/i.test(m))return 'Wrong username or PIN.';
+  if(/rate limit|too many|429/i.test(m))return 'Too many tries. Breathe, wait a few minutes, go again.';
   if(/fetch|network|load failed/i.test(m))return 'No connection. Check your internet and try again.';
-  if(/password/i.test(m)&&/(least|short|weak)/i.test(m))return 'Use a longer password (8+ characters).';
-  if(/email/i.test(m)&&/invalid/i.test(m))return 'That email doesn’t look right.';
-  return m||'Something went wrong. Please try again.'};
-const validEmail=s=>/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(s);
-let lastFocus=null;
+  return m||'Something went wrong. Try again.'};
+const USER_RULE='Username: 3 to 20 letters, numbers, dots or underscores.';
+const PIN_RULE='PIN: 4 to 6 digits.';
 const lockScroll=on=>{document.body.style.overflow=on?'hidden':''};
 const clearHash=()=>{if(location.hash)history.replaceState(null,'',location.pathname+location.search)};
+let lastFocus=null;
 
-/* login / reset modal */
-const auth=$('#auth');let aMode='login';
-function openAuth(mode='login'){
-  if(mode==='login'&&SESSION){location.href='app.html';return}
-  aMode=mode;lastFocus=document.activeElement;
-  const T={login:['Welcome back','Log in to see your plan','Log in'],forgot:['Reset your password','We’ll email you a link to set a new one','Send reset link'],newpass:['Set a new password','Pick a password with 8+ characters','Save new password']}[mode];
-  $('#aTitle').textContent=T[0];$('#aSub').textContent=T[1];$('#aBtn').textContent=T[2];$('#aErr').textContent='';
-  $('#aEmailWrap').hidden=mode==='newpass';$('#aPassWrap').hidden=mode==='forgot';
-  $('#aPass').value='';$('#aPass').autocomplete=mode==='login'?'current-password':'new-password';
-  $('#aForgot').hidden=mode!=='login';$('#aForgot').textContent='Forgot password?';
-  $('#aNew').hidden=mode==='newpass';$('#aNew').textContent=mode==='login'?'New here? Build my plan':'Back to log in';$('#aNew').setAttribute('href',mode==='login'?'#start':'#login');
+/* log in */
+const auth=$('#auth');
+function openAuth(){
+  if(SESSION){location.href='app.html';return}
+  lastFocus=document.activeElement;
+  $('#aTitle').textContent='Welcome back';$('#aSub').textContent='Log in with your username and PIN.';$('#aErr').textContent='';$('#aPass').value='';
+  $('#aBtn').disabled=false;$('#aBtn').textContent='Log in';
   auth.classList.add('open');auth.setAttribute('aria-hidden','false');lockScroll(true);
-  setTimeout(()=>(mode==='newpass'?$('#aPass'):$('#aEmail')).focus(),80)}
+  setTimeout(()=>($('#aEmail').value?$('#aPass'):$('#aEmail')).focus(),80)}
 function closeAuth(){if(!auth.classList.contains('open'))return;auth.classList.remove('open');auth.setAttribute('aria-hidden','true');lockScroll(false);clearHash();if(lastFocus&&lastFocus.focus)lastFocus.focus()}
 auth.addEventListener('click',e=>{if(e.target===auth||e.target.closest('[data-close]'))closeAuth()});
-$('#aForgot').addEventListener('click',e=>{e.preventDefault();const em=$('#aEmail').value;openAuth('forgot');$('#aEmail').value=em});
+$('#aForgot').addEventListener('click',e=>{e.preventDefault();$('#aErr').textContent='';$('#aSub').textContent='Forgot your PIN? Ask Siam to reset it.'});
+$('#aPass').addEventListener('input',e=>{e.target.value=e.target.value.replace(/[^0-9]/g,'').slice(0,6)});
 $('#aForm').addEventListener('submit',async e=>{e.preventDefault();const err=$('#aErr'),btn=$('#aBtn');err.textContent='';
-  if(!sb){err.textContent='Accounts aren’t switched on yet. Please try again later.';return}
-  const email=$('#aEmail').value.trim().toLowerCase(),pass=$('#aPass').value;
-  if(aMode!=='newpass'&&!validEmail(email)){err.textContent='Enter your email address.';$('#aEmail').focus();return}
-  if(aMode!=='forgot'&&pass.length<8){err.textContent='Passwords are at least 8 characters.';$('#aPass').focus();return}
-  const label=btn.textContent;btn.disabled=true;btn.textContent='One moment…';
-  try{
-    if(aMode==='login'){const {error}=await sb.auth.signInWithPassword({email,password:pass});if(error)throw error;location.href='app.html';return}
-    if(aMode==='forgot'){const {error}=await sb.auth.resetPasswordForEmail(email,{redirectTo:BASE+'index.html'});if(error)throw error;
-      err.textContent='';$('#aSub').textContent='If that email has an account, a reset link is on its way. Check your spam folder too.';btn.textContent='Sent';setTimeout(()=>{btn.disabled=false;btn.textContent=label},20000);return}
-    if(aMode==='newpass'){const {error}=await sb.auth.updateUser({password:pass});if(error)throw error;toast2('Password updated');setTimeout(()=>location.href='app.html',700);return}
-  }catch(x){err.textContent=niceErr(x)}
-  btn.disabled=false;btn.textContent=label});
+  if(!sb){err.textContent='Accounts aren’t switched on yet. Check back soon.';return}
+  const user=$('#aEmail').value.trim(),pin=$('#aPass').value.trim();
+  if(!B1.okUser(user)){err.textContent=USER_RULE;$('#aEmail').focus();return}
+  if(!B1.okPin(pin)){err.textContent=PIN_RULE;$('#aPass').focus();return}
+  btn.disabled=true;btn.textContent='One sec…';
+  try{const {error}=await sb.auth.signInWithPassword({email:B1.userEmail(user),password:B1.pinPass(pin)});if(error)throw error;btn.textContent='Let’s go';location.href='app.html';return}
+  catch(x){err.textContent=niceErr(x)}
+  btn.disabled=false;btn.textContent='Log in'});
 
 /* ---------- questionnaire ---------- */
 const wiz=$('#wiz'),wBody=$('#wBody'),wErr=$('#wErr'),wNext=$('#wNext');
 const DEF={name:'',goal:'',exp:'',days:[],minutes:60,where:'',sex:'',age:'',height:'',weight:'',hUnit:'cm',ft:'',inch:'',injuries:[],diet:'all',allergies:[],habits:['sleep','water','steps','meals']};
 let A=Object.assign({},DEF,store.get('b1-answers',{})),step=0,REDO=false,busy=false;
-const save=()=>store.set('b1-answers',A);
+delete A._email;
+const save=()=>{const c=Object.assign({},A);delete c._user;store.set('b1-answers',c)};
 const opt=(key,v,b,s)=>`<button type="button" class="opt" data-k="${key}" data-v="${v}" aria-pressed="${String(A[key])===String(v)}"><span class="tick">✓</span><span><b>${b}</b>${s?`<small>${s}</small>`:''}</span></button>`;
 const chip=(key,v,t)=>`<button type="button" class="wchip" data-m="${key}" data-v="${v}" aria-pressed="${(A[key]||[]).map(String).includes(String(v))}">${t}</button>`;
 const head=(k,h,p)=>`<span class="kicker mono">${k}</span><h3>${h}</h3>${p?`<p class="muted">${p}</p>`:''}`;
 const STEPS=[
- {id:'name',r:()=>head('Hi','What should we call you?','Your first name is fine. It shows up in your app.')+`<div class="wgrid"><label class="fl full">First name<input id="qName" maxlength="40" autocomplete="given-name" value="${esc(A.name)}"></label></div>`,
-  read:()=>{A.name=$('#qName').value.trim()},ok:()=>A.name?'':'Add your name to continue.'},
- {id:'goal',r:()=>head('Your goal','What do you want most?','Pick the one that matters most right now.')+`<div class="opts">${opt('goal','lose','Lose fat','Drop body fat and keep your muscle')+opt('goal','muscle','Build muscle','Get bigger and stronger')+opt('goal','recomp','Both, slowly','Lose a little fat while building muscle')+opt('goal','health','Feel fit and healthy','More energy, strength and better habits')}</div>`,ok:()=>A.goal?'':'Pick a goal.'},
- {id:'exp',r:()=>head('Experience','How much have you trained?')+`<div class="opts">${opt('exp','new','New to it','Under 6 months, or back after a long break')+opt('exp','some','Some experience','6 months to 2 years, on and off')+opt('exp','exp','Experienced','2+ years of steady training')}</div>`,ok:()=>A.exp?'':'Pick one.'},
- {id:'days',r:()=>head('Your week','Which days can you train?','Pick 2 to 6 days. Leave a gap between days if you can.')+`<div class="wchips">${[6,0,1,2,3,4,5].map(d=>chip('days',d,FULL[d])).join('')}</div><p class="muted" id="qDaysN" style="margin-top:14px;font-size:14px"></p>`,
+ {id:'name',r:()=>head('First things first','What do we call you?','First name is perfect. Your app will greet you with it.')+`<div class="wgrid"><label class="fl full">First name<input id="qName" maxlength="40" autocomplete="given-name" value="${esc(A.name)}"></label></div>`,
+  read:()=>{A.name=$('#qName').value.trim()},ok:()=>A.name?'':'Drop your name in to keep going.'},
+ {id:'goal',r:()=>head('The goal','What are we chasing?','Pick the one that matters most right now. You can change it later.')+`<div class="opts">${opt('goal','lose','Lose fat','Drop the fat, keep the muscle')+opt('goal','muscle','Build muscle','Bigger, stronger, every month')+opt('goal','recomp','Both, slowly','Lose a little fat while you build')+opt('goal','health','Feel fit and strong','More energy, better habits, zero burnout')}</div>`,ok:()=>A.goal?'':'Pick a goal.'},
+ {id:'exp',r:()=>head('Be honest','How much have you trained?','No judgment. Your plan starts where you actually are.')+`<div class="opts">${opt('exp','new','Brand new','Under 6 months, or back after a long break')+opt('exp','some','Been around','6 months to 2 years, on and off')+opt('exp','exp','Seasoned','2+ years of steady training')}</div>`,ok:()=>A.exp?'':'Pick one.'},
+ {id:'days',r:()=>head('Your week','Which days can you show up?','Pick 2 to 6. Rest days are where the growth happens.')+`<div class="wchips">${[6,0,1,2,3,4,5].map(d=>chip('days',d,FULL[d])).join('')}</div><p class="muted" id="qDaysN" style="margin-top:14px;font-size:14px"></p>`,
   after:()=>{const n=A.days.length;$('#qDaysN').textContent=n?`${n} day${n>1?'s':''} a week${n>=2&&n<=6?' · '+B1.SPLIT_NAME[n]:''}`:''},
-  ok:()=>A.days.length<2?'Pick at least 2 days.':A.days.length>6?'Pick 6 days at most. Your body grows on rest days.':''},
- {id:'minutes',r:()=>head('Time','How long can each session be?')+`<div class="opts">${opt('minutes',30,'30 minutes','4 exercises, short and sharp')+opt('minutes',45,'45 minutes','5 exercises')+opt('minutes',60,'60 minutes','6–7 exercises, the sweet spot')+opt('minutes',75,'75 minutes','Up to 8 exercises')}</div>`,ok:()=>A.minutes?'':'Pick one.'},
- {id:'where',r:()=>head('Equipment','Where will you train?','Every exercise comes with a drawing, form cues and a demo video link.')+`<div class="opts">${opt('where','gym','A gym','Machines, cables and free weights')+opt('where','home-db','At home with dumbbells','A pair of dumbbells (adjustable is best)')+opt('where','home-bw','At home, no equipment','Your bodyweight and a backpack')}</div>`,ok:()=>A.where?'':'Pick one.'},
- {id:'body',r:()=>head('About you','A few numbers for your food targets','Used only to work out calories, protein and water. You can change them later.')+`<div class="wchips" style="margin-top:18px">${chip('sexA','male','Male')+chip('sexA','female','Female')+chip('sexA','skip','Prefer not to say')}</div>
-   <div class="wgrid"><label class="fl">Age<input id="qAge" inputmode="numeric" value="${esc(A.age)}" placeholder="25"></label><label class="fl">Weight<span class="unit"><input id="qW" inputmode="decimal" value="${esc(A.weight)}" placeholder="70"><span>kg</span></span></label>
+  ok:()=>A.days.length<2?'Pick at least 2 days.':A.days.length>6?'6 days max. Your body grows when it rests.':''},
+ {id:'minutes',r:()=>head('Time','How long can each session be?','Short and done beats long and skipped.')+`<div class="opts">${opt('minutes',30,'30 minutes','4 exercises. In, out, done.')+opt('minutes',45,'45 minutes','5 exercises')+opt('minutes',60,'60 minutes','6 to 7 exercises. The sweet spot.')+opt('minutes',75,'75 minutes','Up to 8 exercises')}</div>`,ok:()=>A.minutes?'':'Pick one.'},
+ {id:'where',r:()=>head('Equipment','Where will you train?','Every exercise comes with a drawing, form cues and a demo video.')+`<div class="opts">${opt('where','gym','A gym','Machines, cables and free weights')+opt('where','home-db','At home with dumbbells','A pair of dumbbells, adjustable is best')+opt('where','home-bw','At home, no equipment','Your bodyweight and a backpack')}</div>`,ok:()=>A.where?'':'Pick one.'},
+ {id:'body',r:()=>head('About you','A few numbers for your fuel','Used only to set your calories, protein and water. Change them any time.')+`<div class="wchips" style="margin-top:18px">${chip('sexA','male','Male')+chip('sexA','female','Female')+chip('sexA','skip','Prefer not to say')}</div>
+   <div class="wgrid"><label class="fl">Age<input id="qAge" inputmode="numeric" value="${esc(A.age)}" placeholder="21"></label><label class="fl">Weight<span class="unit"><input id="qW" inputmode="decimal" value="${esc(A.weight)}" placeholder="70"><span>kg</span></span></label>
    <div class="fl full"><span style="display:flex;justify-content:space-between;align-items:center">Height <span class="seg2" id="qHU" style="margin:0"><button type="button" data-u="cm" aria-pressed="${A.hUnit==='cm'}">cm</button><button type="button" data-u="ft" aria-pressed="${A.hUnit==='ft'}">ft / in</button></span></span>
    ${A.hUnit==='cm'?`<span class="unit"><input id="qH" inputmode="decimal" value="${esc(A.height)}" placeholder="170" aria-label="Height in cm"><span>cm</span></span>`:`<span class="unit"><input id="qFt" inputmode="numeric" value="${esc(A.ft)}" placeholder="5" aria-label="Feet"><span>ft</span><input id="qIn" inputmode="numeric" value="${esc(A.inch)}" placeholder="7" aria-label="Inches"><span>in</span></span>`}</div></div>`,
   read:()=>{A.age=$('#qAge').value.trim();A.weight=$('#qW').value.trim().replace(',','.');
     if(A.hUnit==='cm')A.height=$('#qH').value.trim().replace(',','.');else{A.ft=$('#qFt').value.trim();A.inch=$('#qIn').value.trim();const f=+A.ft,i=+A.inch||0;A.height=f?String(Math.round((f*12+i)*2.54)):''}},
-  ok:()=>{if(!A.sex)return 'Pick an option for sex (or prefer not to say).';const a=+A.age,w=+A.weight,h=+A.height;
-    if(!(a>=16&&a<=90))return a&&a<16?'Better 1% is for people aged 16 and over.':'Enter your age.';if(!(w>=35&&w<=250))return 'Enter your weight in kg.';if(!(h>=120&&h<=230))return 'Enter your height.';return ''}},
- {id:'inj',r:()=>head('Joints','Anything that hurts when you train?','We swap out the riskiest exercises. Pick all that apply.')+`<div class="wchips">${chip('injuries','knees','Knees')+chip('injuries','back','Lower back')+chip('injuries','shoulders','Shoulders')+chip('injuries','none','Nothing, I’m fine')}</div><p class="pv-note">Better 1% is not medical advice. If you have an injury, a heart condition or you’re pregnant, check with a doctor or physiotherapist first.</p>`,
-  ok:()=>A.injuries.length?'':'Pick one, or “Nothing, I’m fine”.'},
- {id:'food',r:()=>head('Food','How do you eat?','Your recipes and quick foods are filtered to match.')+`<div class="opts">${opt('diet','all','I eat everything','Meat, fish, eggs and dairy')+opt('diet','egg','No meat or fish','Eggs and dairy are fine')+opt('diet','veg','Vegetarian','Dairy, no eggs, meat or fish')}</div>
-   <p class="muted" style="margin-top:20px;font-size:14.5px">Allergies or foods you avoid</p><div class="wchips" style="margin-top:10px">${[['milk','Milk / dairy'],['nuts','Nuts'],['gluten','Wheat / gluten'],['soy','Soy'],['fish','Fish'],['egg','Egg']].map(([v,t])=>chip('allergies',v,t)).join('')}</div>`,ok:()=>''},
- {id:'habits',r:()=>head('Habits','Pick up to 4 daily habits','Small things you tick off each day. You can change them in the app.')+`<div class="wchips">${B1.HABIT_ORDER.map(id=>chip('habits',id,esc(B1.HABITS[id].name))).join('')}</div>`,ok:()=>A.habits.length?'':'Pick at least one habit.'},
+  ok:()=>{if(!A.sex)return 'Pick an option above (or prefer not to say).';const a=+A.age,w=+A.weight,h=+A.height;
+    if(!(a>=16&&a<=90))return a&&a<16?'Better 1% is for ages 16 and up.':'Enter your age.';if(!(w>=35&&w<=250))return 'Enter your weight in kg.';if(!(h>=120&&h<=230))return 'Enter your height.';return ''}},
+ {id:'inj',r:()=>head('Joints','Anything hurt when you train?','We swap out the risky moves. Pick all that apply.')+`<div class="wchips">${chip('injuries','knees','Knees')+chip('injuries','back','Lower back')+chip('injuries','shoulders','Shoulders')+chip('injuries','none','Nothing, I’m good')}</div><p class="pv-note">Better 1% is not medical advice. Injury, heart condition or pregnant? Talk to a doctor or physio first.</p>`,
+  ok:()=>A.injuries.length?'':'Pick one, or “Nothing, I’m good”.'},
+ {id:'food',r:()=>head('Food','How do you eat?','Your recipes and quick foods match this.')+`<div class="opts">${opt('diet','all','I eat everything','Meat, fish, eggs and dairy')+opt('diet','egg','No meat or fish','Eggs and dairy are fine')+opt('diet','veg','Vegetarian','Dairy, no eggs, meat or fish')}</div>
+   <p class="muted" style="margin-top:20px;font-size:14.5px">Allergies or foods you skip</p><div class="wchips" style="margin-top:10px">${[['milk','Milk / dairy'],['nuts','Nuts'],['gluten','Wheat / gluten'],['soy','Soy'],['fish','Fish'],['egg','Egg']].map(([v,t])=>chip('allergies',v,t)).join('')}</div>`,ok:()=>''},
+ {id:'habits',r:()=>head('Daily wins','Pick up to 4 habits','Small things you tick off every day. This is where the 1% hides.')+`<div class="wchips">${B1.HABIT_ORDER.map(id=>chip('habits',id,esc(B1.HABITS[id].name))).join('')}</div>`,ok:()=>A.habits.length?'':'Pick at least one habit.'},
  {id:'preview',r:()=>{const a=answers(),p=B1.buildPlan(a),first=p.order[0],w=p.workouts[first],cmap={'var(--train)':'#fa114f','var(--habit)':'#1ed8f5','var(--protein)':'#a3f04a','var(--accent)':'#8b7cff','var(--warn)':'#ffb340'};
-   return head('Your plan',`${esc(A.name||'Your')}${A.name?'’s':''} ${esc(p.split.toLowerCase())}`,`${a.days.length} days a week · about ${a.minutes} min · ${({gym:'gym',db:'dumbbells at home',bw:'no equipment'})[p.eq]}`)+
+   return head('Your plan is ready',`${esc(A.name||'Your')}${A.name?'’s':''} ${esc(p.split.toLowerCase())}`,`${a.days.length} days a week · about ${a.minutes} min · ${({gym:'gym',db:'dumbbells at home',bw:'no equipment'})[p.eq]}`)+
    `<div class="pv-week">${[6,0,1,2,3,4,5].map(d=>{const id=p.days[d],W=id==='rest'?null:p.workouts[id];return `<div class="pv-d" style="--c:${W?cmap[W.color]||'#c084fc':'#5a5a63'}">${SHORT[d].slice(0,3)}<b>${W?esc(W.name):(d===p.checkDay?'Check-in':'Rest')}</b><i></i></div>`}).join('')}</div>
    <div class="pv-t"><div><b>${p.targets.kcal.toLocaleString('en-US')}</b><span>kcal a day</span></div><div><b>${p.targets.protein} g</b><span>protein</span></div><div><b>${p.targets.water}</b><span>glasses water</span></div></div>
    <div class="pv-ex"><h4>${esc(w.title)}</h4><ul>${w.ex.map(e=>{const x=B1.EXI[e.k];return `<li>${esc(x.n)}<span>${x.r[0]}–${x.r[1]} ${/Reps are seconds/.test(x.c)?'sec':'reps'}</span></li>`}).join('')}</ul></div>
    ${p.notes.map(n=>`<p class="pv-note">${esc(n)}</p>`).join('')}`},ok:()=>''},
- {id:'account',skipIf:()=>REDO,r:()=>head('Last step','Save your plan to a free account','Your plan and logs are private to you and sync across your phone and laptop.')+
-   `<div class="wgrid"><label class="fl full">Email<input type="email" id="qEmail" autocomplete="email" value="${esc(A._email||'')}"></label><label class="fl full">Password<input type="password" id="qPass" autocomplete="new-password" placeholder="8+ characters"></label>
-   <label class="chk full"><input type="checkbox" id="qOk"><span>I understand Better 1% is a free test app, not medical advice, and that my answers are stored in my private account. I can delete it any time in Settings.</span></label></div>
+ {id:'account',skipIf:()=>REDO,r:()=>head('Last step','Lock in your plan','Pick a username and a 4 to 6 digit PIN. That’s your login. No email needed.')+
+   `<div class="wgrid"><label class="fl full">Username<input id="qUser" autocomplete="username" autocapitalize="off" spellcheck="false" maxlength="20" placeholder="e.g. ${esc((A.name||'rafi').replace(/[^A-Za-z0-9_.]/g,'').slice(0,20)||'rafi')}" value="${esc(A._user||'')}"></label>
+   <label class="fl">PIN<input type="password" id="qPass" inputmode="numeric" autocomplete="new-password" maxlength="6" placeholder="4 to 6 digits"></label>
+   <label class="fl">Repeat PIN<input type="password" id="qPass2" inputmode="numeric" autocomplete="new-password" maxlength="6" placeholder="Same again"></label>
+   <label class="chk full"><input type="checkbox" id="qOk"><span>Got it: Better 1% is a free test app, not medical advice. My plan and logs stay in my private account, and I can delete it any time.</span></label></div>
    <p class="muted" style="margin-top:14px;font-size:14px">Already have an account? <a href="#login" class="grad" style="font-weight:600">Log in</a></p>`,
-  read:()=>{A._email=$('#qEmail').value.trim().toLowerCase()},ok:()=>!validEmail(A._email)?'Enter a valid email address.':$('#qPass').value.length<8?'Use a password with at least 8 characters.':!$('#qOk').checked?'Tick the box to continue.':''}
+  after:()=>['#qPass','#qPass2'].forEach(id=>$(id).addEventListener('input',e=>{e.target.value=e.target.value.replace(/[^0-9]/g,'').slice(0,6)})),
+  read:()=>{A._user=$('#qUser').value.trim()},
+  ok:()=>!B1.okUser(A._user)?USER_RULE:!B1.okPin($('#qPass').value)?PIN_RULE:$('#qPass').value!==$('#qPass2').value?'The two PINs don’t match.':!$('#qOk').checked?'Tick the box to continue.':''}
 ];
 const live=()=>STEPS.filter(s=>!(s.skipIf&&s.skipIf()));
 function answers(){return {name:A.name.slice(0,40),goal:A.goal,exp:A.exp,days:A.days.map(Number).sort((a,b)=>a-b),minutes:+A.minutes,where:A.where,sex:A.sex,age:+A.age,height:+A.height,weight:+A.weight,
   injuries:A.injuries.filter(x=>x!=='none'),diet:A.diet,allergies:A.allergies.slice(),habits:A.habits.slice(0,4)}}
+const btnLabel=S=>S.id==='account'?'Create my account <span class="arr">→</span>':(S.id==='preview'&&REDO)?'Save my new plan <span class="arr">→</span>':S.id==='preview'?'Let’s go <span class="arr">→</span>':'Continue <span class="arr">→</span>';
 function paintStep(focus=true){const L=live();step=Math.max(0,Math.min(step,L.length-1));const S=L[step];
   wBody.innerHTML=`<div class="wstep" data-s="${S.id}">${S.r()}</div>`;wErr.textContent='';
   $('#wStep').textContent=`${step+1} / ${L.length}`;$('#wBar').style.width=((step+1)/L.length*100)+'%';$('#wBack').style.visibility=step?'visible':'hidden';
-  wNext.innerHTML=S.id==='account'?'Create my account <span class="arr">→</span>':(S.id==='preview'&&REDO)?'Save my new plan <span class="arr">→</span>':S.id==='preview'?'Looks good <span class="arr">→</span>':'Continue <span class="arr">→</span>';
+  wNext.innerHTML=btnLabel(S);
   if(S.after)S.after();wBody.scrollTop=0;
   if(focus){const f=$('input',wBody);if(f&&FINE)setTimeout(()=>f.focus(),60)}}
 wBody.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;
@@ -1307,14 +1311,14 @@ wBody.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)retu
     let arr=(A[k]||[]).slice();const has=arr.map(String).includes(String(v));
     if(k==='injuries'){arr=v==='none'?(has?[]:['none']):arr.filter(x=>x!=='none')}
     if(has)arr=arr.filter(x=>String(x)!==String(v));else if(!(k==='injuries'&&v==='none')){
-      if(k==='habits'&&arr.length>=4){wErr.textContent='Pick up to 4. Tap one to remove it first.';return}
-      if(k==='days'&&arr.length>=6){wErr.textContent='6 days at most.';return}arr.push(v)}
+      if(k==='habits'&&arr.length>=4){wErr.textContent='4 max. Tap one to swap it out.';return}
+      if(k==='days'&&arr.length>=6){wErr.textContent='6 days max.';return}arr.push(v)}
     A[k]=arr;$$(`[data-m="${k}"]`,wBody).forEach(x=>x.setAttribute('aria-pressed',arr.map(String).includes(x.dataset.v)));wErr.textContent='';save();
     const S=live()[step];if(S.after)S.after();return}
   if(b.dataset.u){const S=live()[step];S.read&&S.read();A.hUnit=b.dataset.u;
     if(A.hUnit==='ft'&&A.height){const t=+A.height/2.54;A.ft=String(Math.floor(t/12));A.inch=String(Math.round(t%12))}save();paintStep(false)}});
 wBody.addEventListener('keydown',e=>{if(e.key==='Enter'&&e.target.tagName==='INPUT'&&e.target.type!=='checkbox'){e.preventDefault();next()}});
-wBody.addEventListener('click',e=>{const a=e.target.closest('a[href="#login"]');if(a){e.preventDefault();closeWiz();openAuth('login')}});
+wBody.addEventListener('click',e=>{const a=e.target.closest('a[href="#login"]');if(a){e.preventDefault();closeWiz();openAuth()}});
 async function next(){if(busy)return;const L=live(),S=L[step];if(S.read)S.read();save();const m=S.ok();if(m){wErr.textContent=m;return}
   if(S.id==='preview'&&REDO)return saveRedo();
   if(S.id==='account')return signUp();
@@ -1323,26 +1327,26 @@ wNext.addEventListener('click',next);
 $('#wBack').addEventListener('click',()=>{const S=live()[step];if(S.read)S.read();save();if(step>0){step--;paintStep()}});
 function setBusy(on,label){busy=on;wNext.disabled=on;if(on)wNext.textContent=label}
 async function signUp(){
-  if(!sb){wErr.textContent='Accounts aren’t switched on yet. Please try again later.';return}
-  const a=answers(),plan=B1.buildPlan(a),pass=$('#qPass').value;setBusy(true,'Creating your account…');
+  if(!sb){wErr.textContent='Accounts aren’t switched on yet. Check back soon.';return}
+  const a=answers(),plan=B1.buildPlan(a),pin=$('#qPass').value.trim(),user=A._user;setBusy(true,'Building your account…');
   try{
-    const {data,error}=await sb.auth.signUp({email:A._email,password:pass,options:{data:{name:a.name,b1_answers:a},emailRedirectTo:BASE+'app.html'}});
+    const {data,error}=await sb.auth.signUp({email:B1.userEmail(user),password:B1.pinPass(pin),options:{data:{name:a.name,username:user,b1_answers:a}}});
     if(error)throw error;
     if(data&&data.user&&Array.isArray(data.user.identities)&&!data.user.identities.length)throw new Error('already registered');
-    if(!data.session){wBody.innerHTML=head('Almost there','Check your email',`We sent a link to ${esc(A._email)}. Open it on this device to finish.`);wNext.hidden=true;$('#wBack').style.visibility='hidden';store.del('b1-answers');busy=false;return}
+    if(!data.session)throw new Error('Account made, but sign-in is waiting for approval. Ask Siam.');
     const r=await sb.from('profiles').upsert({id:data.session.user.id,display_name:a.name,answers:a,plan});
     if(r.error)console.warn(r.error);/* the app retries from the account metadata */
+    try{await sb.rpc('claim_seed_plan')}catch(x){}
     store.del('b1-answers');wNext.textContent='Opening your plan…';location.href='app.html';
-  }catch(x){const m=niceErr(x);wErr.innerHTML=esc(m)+(/already has an account/.test(m)?' <a href="#login" class="grad" style="font-weight:600">Log in</a>':'');setBusy(false);paintBtn()}}
+  }catch(x){const m=niceErr(x);wErr.innerHTML=esc(m)+(/username is taken/.test(m)?' Or <a href="#login" class="grad" style="font-weight:600">log in</a>.':'');setBusy(false);wNext.innerHTML=btnLabel(live()[step])}}
 async function saveRedo(){
   if(!sb||!SESSION){wErr.textContent='Please log in again.';return}
   const a=answers(),plan=B1.buildPlan(a);setBusy(true,'Saving…');
   try{const r=await sb.from('profiles').upsert({id:SESSION.user.id,display_name:a.name,answers:a,plan});if(r.error)throw r.error;
     try{localStorage.removeItem('b1-profile-'+SESSION.user.id)}catch(e){}
     store.del('b1-answers');wNext.textContent='Opening your new plan…';location.href='app.html#today'}
-  catch(x){wErr.textContent=niceErr(x);setBusy(false);paintBtn()}}
-const paintBtn=()=>{const S=live()[step];wNext.innerHTML=S.id==='account'?'Create my account <span class="arr">→</span>':'Save my new plan <span class="arr">→</span>'};
-wErr.addEventListener('click',e=>{const a=e.target.closest('a[href="#login"]');if(a){e.preventDefault();closeWiz();openAuth('login');$('#aEmail').value=A._email||''}});
+  catch(x){wErr.textContent=niceErr(x);setBusy(false);wNext.innerHTML=btnLabel(live()[step])}}
+wErr.addEventListener('click',e=>{const a=e.target.closest('a[href="#login"]');if(a){e.preventDefault();closeWiz();openAuth();$('#aEmail').value=A._user||''}});
 async function openWiz(){lastFocus=document.activeElement;wNext.hidden=false;wNext.disabled=false;busy=false;
   REDO=!!SESSION;
   if(REDO){let prev=null;
@@ -1352,29 +1356,25 @@ async function openWiz(){lastFocus=document.activeElement;wNext.hidden=false;wNe
 function closeWiz(){if(!wiz.classList.contains('open'))return;wiz.classList.remove('open');wiz.setAttribute('aria-hidden','true');lockScroll(false);clearHash();if(lastFocus&&lastFocus.focus)lastFocus.focus()}
 $('#wClose').addEventListener('click',closeWiz);
 addEventListener('keydown',e=>{if(e.key!=='Escape')return;if(wiz.classList.contains('open'))closeWiz();else if(auth.classList.contains('open'))closeAuth()});
-/* simple focus trap */
 [auth,wiz].forEach(m=>m.addEventListener('keydown',e=>{if(e.key!=='Tab')return;const f=$$('button:not([disabled]),a[href],input',m).filter(x=>x.offsetParent);if(!f.length)return;
   const a=f[0],z=f[f.length-1];if(e.shiftKey&&document.activeElement===a){z.focus();e.preventDefault()}else if(!e.shiftKey&&document.activeElement===z){a.focus();e.preventDefault()}}));
 
 /* links + routing */
 document.addEventListener('click',e=>{const a=e.target.closest('a[href="#start"],a[href="#login"]');if(!a||a.closest('#wiz'))return;e.preventDefault();
   document.body.classList.remove('menu-open');$('#burger').setAttribute('aria-expanded',false);closeAuth();
-  if(a.getAttribute('href')==='#start')openWiz();else openAuth('login')});
+  if(a.getAttribute('href')==='#start')openWiz();else openAuth()});
 function route(){const h=location.hash;
   if(h==='#start')openWiz();
-  else if(h==='#login')openAuth('login');
-  else if(h==='#deleted'){clearHash();toast2('Your account and all your data were deleted.',4500)}
-  else if(h==='#signedout'){clearHash();toast2('You’re logged out.')}}
-const RECOVERY=/type=recovery/.test(location.hash);
+  else if(h==='#login')openAuth();
+  else if(h==='#deleted'){clearHash();toast2('Your account and all your data are gone. Come back stronger.',4500)}
+  else if(h==='#signedout'){clearHash();toast2('Logged out. See you next session.')}}
 addEventListener('hashchange',route);
 (async()=>{
   if(sb){
-    sb.auth.onAuthStateChange((ev,s)=>{SESSION=s;setAuthUI();if(ev==='PASSWORD_RECOVERY')setTimeout(()=>openAuth('newpass'),50)});
+    sb.auth.onAuthStateChange((ev,s)=>{SESSION=s;setAuthUI()});
     try{const {data}=await sb.auth.getSession();SESSION=data.session}catch(e){}
   }
-  setAuthUI();
-  if(RECOVERY){if(SESSION)openAuth('newpass');return}
-  route()})();
+  setAuthUI();route()})();
 
 /* ---------- scroll loop ---------- */
 const mq=$('#mqskew');let vel=0,raf=null;

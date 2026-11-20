@@ -1975,7 +1975,7 @@ $('#view').addEventListener('input',e=>{const t=e.target;const k=t.dataset&&t.da
 $('#view').addEventListener('change',e=>{const t=e.target;if(!t.dataset)return;if(t.dataset.in==='ex-pick'){strengthEx=t.value;render(false)}else if(t.dataset.in==='lib-m'){libMuscle=t.value;render(false)}});
 
 /* ---------- Settings ---------- */
-function openSettings(){$('#setName').value=(PROFILE&&PROFILE.display_name)||'';$('#setEmail').textContent=(USER&&USER.email)||'';$('#setStart').value=startKey();$('#setProtein').value=proteinTarget();$('#setKcal').value=S.settings.kcal||'';$('#importBox').value='';$('#modal').hidden=false;$('#setStart').focus()}
+function openSettings(){$('#setName').value=(PROFILE&&PROFILE.display_name)||'';$('#setEmail').textContent=USER?((USER.user_metadata&&USER.user_metadata.username)||B1.userFromEmail(USER.email)):'';$('#setStart').value=startKey();$('#setProtein').value=proteinTarget();$('#setKcal').value=S.settings.kcal||'';$('#importBox').value='';$('#modal').hidden=false;$('#setStart').focus()}
 $('#openSettings').addEventListener('click',openSettings);
 $('#modal').addEventListener('click',e=>{if(e.target.id==='modal'||e.target.closest('[data-close]'))$('#modal').hidden=true});
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!$('#modal').hidden)$('#modal').hidden=true});

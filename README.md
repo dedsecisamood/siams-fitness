@@ -14,11 +14,12 @@ Live: https://dedsecisamood.github.io/siams-fitness/
 | `app.html` | The app (Today, Train, Exercises, Fuel, Recipes, Habits, Progress, Plan, Guide) |
 | `plan.js` | Plan builder shared by both pages: splits, exercise swaps, targets, habits |
 | `config.js` | Supabase project URL and **publishable** key |
-| `supabase-schema.sql` | Database tables and row-level security (already applied) |
+| `supabase-schema.sql` | Database tables, row-level security and pre-loaded plans (already applied) |
 
 ## Accounts and privacy
 
-- Accounts run on Supabase (email and password).
+- Log in with a username and a 4 to 6 digit PIN. Under the hood each username maps to a Supabase account; no email is collected.
+- Forgotten PIN: reset it in Supabase → Authentication → Users (set a new password of `b1pin-` followed by the new PIN).
 - Each person's answers, plan and logs live in their own rows. Row-level security blocks
   everyone else, including logged-out visitors.
 - Settings → Delete my account removes the account and every row it owns.
@@ -32,8 +33,7 @@ Live: https://dedsecisamood.github.io/siams-fitness/
 2. Supabase → Authentication → URL configuration: Site URL and redirect URL
    `https://dedsecisamood.github.io/siams-fitness/**`.
 
-Free-plan notes: the project pauses after 7 days with no activity (resume it from the
-dashboard), and the built-in email sender is limited to a few emails an hour, which is why
-email confirmation is off.
+Free-plan note: the project pauses after 7 days with no activity. Resume it from the dashboard.
+Email confirmation is off because accounts use usernames, not real email addresses.
 
-Not medical advice. Check with a doctor before starting if you have an injury or condition.
+Made by Abdullah Siam. Not medical advice. Check with a doctor before starting if you have an injury or condition.
