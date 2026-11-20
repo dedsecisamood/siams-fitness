@@ -1,29 +1,39 @@
 # Better 1%
 
-Abdullah Al Siam's training system: 1% better every day. A 5-day split (Saturday to Thursday, Friday rest), every machine explained, home food with no supplements, habits that stick and a 12-month plan.
+A free training app for a small test group. Answer 10 questions and get your own plan:
+a split that fits your days, every exercise with a drawing, form cues and a demo link,
+calorie, protein and water targets, recipes filtered to how you eat, and daily habits.
 
-**Live site:** https://dedsecisamood.github.io/siams-fitness/
+Live: https://dedsecisamood.github.io/siams-fitness/
 
 ## Files
 
 | File | What it is |
 | --- | --- |
-| `index.html` | The landing page: why 1%, the week (tap a day for its exercises, cues, do's and don'ts), the app, food, the 12-month plan, green and red flags, FAQ |
-| `app.html` | The app itself, behind a passcode: Today, Train logger, 28-exercise library, Food, Recipes, Habits, Progress, Plan and Guide |
-| `logo.webp` | Logo |
-| `manifest.webmanifest`, `icon-192.png`, `icon-512.png`, `apple-touch-icon.png` | Lets phones install the app to the home screen |
-| `og.jpg` | Preview image shown when the link is shared |
+| `index.html` | Landing page, questionnaire, sign-up and log-in |
+| `app.html` | The app (Today, Train, Exercises, Fuel, Recipes, Habits, Progress, Plan, Guide) |
+| `plan.js` | Plan builder shared by both pages: splits, exercise swaps, targets, habits |
+| `config.js` | Supabase project URL and **publishable** key |
+| `supabase-schema.sql` | Database tables and row-level security (already applied) |
 
-Both pages are single self-contained HTML files with no build step. Any static host works: GitHub Pages, Netlify, Vercel or Cloudflare Pages.
+## Accounts and privacy
 
-## Passcode
+- Accounts run on Supabase (email and password).
+- Each person's answers, plan and logs live in their own rows. Row-level security blocks
+  everyone else, including logged-out visitors.
+- Settings → Delete my account removes the account and every row it owns.
+- The app also keeps a copy on the device so it works offline, and syncs when back online.
 
-The app opens after a 4-digit passcode on the landing page. It is a simple privacy lock that keeps casual visitors out, not real security: anyone who reads the source can get around it.
+## Setup
 
-## Data
+1. Put the project's publishable key (`sb_publishable_…`) in `config.js`.
+   It is safe in a public repo. **Never** put the secret key (`sb_secret_…`) or the
+   database password in this repo.
+2. Supabase → Authentication → URL configuration: Site URL and redirect URL
+   `https://dedsecisamood.github.io/siams-fitness/**`.
 
-Logs are saved in the browser on each device (localStorage). Use **Settings → Copy my data** in the app to back up or move to another device.
+Free-plan notes: the project pauses after 7 days with no activity (resume it from the
+dashboard), and the built-in email sender is limited to a few emails an hour, which is why
+email confirmation is off.
 
-## Custom domain
-
-If you move to your own domain, update the two `og:` URLs at the top of `index.html` so link previews point at the new address.
+Not medical advice. Check with a doctor before starting if you have an injury or condition.

@@ -1,14 +1,22 @@
 {
   "name": "Better 1%",
   "short_name": "Better 1%",
-  "description": "Abdullah Al Siam's training app: 1% better every day.",
+  "description": "A free training plan built around your week: your split, every exercise explained, food targets and habits. 1% better every day.",
   "start_url": "app.html#today",
   "scope": "./",
   "display": "standalone",
   "background_color": "#07050c",
   "theme_color": "#07050c",
   "icons": [
-    {"src": "icon-192.png", "sizes": "192x192", "type": "image/png"},
-    {"src": "icon-512.png", "sizes": "512x512", "type": "image/png"}
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
   ]
 }
