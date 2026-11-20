@@ -1,6 +1,6 @@
 # Siam's Fitness
 
-A personal, all-in-one fitness app for a beginner chasing an aesthetic V-taper: a 6-day push/pull/legs plan, workout logger, exercise library, food and protein tracker, home-food recipes, habit tracker, progress charts and a beginner's gym guide.
+A personal, all-in-one fitness app for a beginner chasing an aesthetic V-taper: a 5-day push/pull/legs + upper/lower split (Friday rest), week view with day-by-day instructions, workout logger, exercise library, food and protein tracker, home-food recipes, habit tracker, progress charts and a beginner's gym guide.
 
 It is a single HTML file with no dependencies. Open `index.html` in any browser, or visit the GitHub Pages site.
 
@@ -8,9 +8,9 @@ It is a single HTML file with no dependencies. Open `index.html` in any browser,
 
 | Tab | What it does |
 | --- | --- |
-| Today | Activity rings (train, protein, habits), today's session, quick food logging |
+| Today | Your week (Sat–Fri) as day cards: tap a day for every exercise, its machine, form steps and do's and don'ts. Plus activity rings and habits |
 | Train | Logs every set, shows last time, warm-up weights, rest timer, flags new bests |
-| Exercises | 31 exercises with machine drawings, muscle maps, set-up and step-by-step form, and a machine finder checklist |
+| Exercises | 28 exercises with machine drawings, muscle maps, set-up and step-by-step form, and a machine finder checklist |
 | Fuel | Protein and calorie log built around Bangladeshi home food |
 | Recipes | 10 high-protein recipes from home ingredients, no supplements |
 | Habits | Custom habits with streaks that follow the "never miss twice" rule |
