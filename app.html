@@ -2,15 +2,16 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<script>try{if(sessionStorage.getItem('b1-unlocked')!=='1')location.replace('index.html#unlock'+encodeURIComponent(location.hash||''))}catch(e){}</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Siam's Fitness</title>
-<link rel="icon" href="icon.svg" type="image/svg+xml">
+<title>Better 1%</title>
+<link rel="icon" href="icon-192.png" type="image/png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="manifest" href="manifest.webmanifest">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="Siam's Fitness">
+<meta name="apple-mobile-web-app-title" content="Better 1%">
 
 <style>
 /* Layout idea: Apple Fitness-style personal hub. Three activity rings (Train, Protein, Habits) anchor Today; every other view is a calm stack of white cards on a soft grey canvas. */
@@ -437,9 +438,9 @@ td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
 <body>
 <header class="top">
   <div class="top-in">
-    <a class="brand" href="index.html" aria-label="Siam's Fitness home page">
-      <svg viewBox="0 0 26 26" aria-hidden="true"><circle cx="13" cy="13" r="11" fill="none" stroke="var(--train)" stroke-width="3"/><circle cx="13" cy="13" r="6.5" fill="none" stroke="var(--protein)" stroke-width="3"/><circle cx="13" cy="13" r="2" fill="var(--habit)"/></svg>
-      <span>Siam’s Fitness</span>
+    <a class="brand" href="index.html" aria-label="Better 1% home page">
+      <img src="logo.webp" alt="" width="28" height="28" style="width:28px;height:28px;border-radius:50%;object-fit:cover;box-shadow:0 0 0 2px rgba(168,85,255,.5)">
+      <span>Better 1%</span>
     </a>
     <nav class="seg" id="topnav" aria-label="Sections"></nav>
     <div class="top-right">
@@ -1161,7 +1162,7 @@ function render(animate){
   v.innerHTML=fn();
   if(!animate)window.scrollTo(0,y);
   const label=current==='ex'?EX_BY_KEY[exKey].n:current==='day'?DAYNAMES[dayIdx]+(WEEKDAY[dayIdx]==='rest'?' · Rest':' · '+PROGRAM[WEEKDAY[dayIdx]].name):((VIEWS.find(x=>x[0]===current)||[0,current==='more'?'More':'Today'])[1]);
-  document.title=label+' · Siam’s Fitness';
+  document.title=label+' · Better 1%';
 }
 
 /* ---------- Equipment illustrations (line art) ---------- */
