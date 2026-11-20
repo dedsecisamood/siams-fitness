@@ -774,14 +774,14 @@ const PROGRAM={
     warm:['5 min on the bike or rower','10 arm circles, 10 band pull-aparts','2 light sets of flat dumbbell press'],
     dos:['Do hammer curls and overhead extensions back to back (superset) to save time','Control every lowering phase','Use less assistance on pull-ups over the weeks','Keep the whole session to about an hour'],
     donts:['Rushing the rest on the two big lifts','Using the same weight for weeks without trying one more rep','Letting your chest come off the pad on rows','Turning it into a 90-minute session']},
-  lower:{name:'Legs & Shoulders',title:'Legs & shoulders day',focus:'Hamstrings, glutes, side and rear shoulders',color:'var(--warn)',mins:60,
-    ex:[pick('db-rdl',{main:1}),pick('hip-thrust',{main:1}),pick('lying-leg-curl'),pick('seated-calf'),pick('db-lateral-raise',{lat:1}),pick('reverse-pec-deck')],
+  lower:{name:'Legs & Shoulders',title:'Legs & shoulders day',focus:'Hamstrings, glutes, quads, side and rear shoulders',color:'var(--warn)',mins:60,
+    ex:[pick('db-rdl',{main:1}),pick('hip-thrust',{main:1}),pick('lying-leg-curl'),pick('leg-extension'),pick('seated-calf'),pick('db-lateral-raise',{lat:1}),pick('reverse-pec-deck')],
     warm:['5 min brisk incline walk','10 hip hinges with a broomstick or no weight, 10 glute bridges','1 light set of Romanian deadlifts'],
-    dos:['Push your hips back on RDLs; the dumbbells slide down your legs','Squeeze your glutes hard for 1 second at the top of hip thrusts','Do lateral raises strict and light after legs','Finish with rear delts; they make your shoulders look round from the side'],
+    dos:['Push your hips back on RDLs; the dumbbells slide down your legs','Squeeze your glutes hard for 1 second at the top of hip thrusts','Keep leg extensions to 2 easy sets: they give your quads a second day each week','Do lateral raises strict and light after legs','Finish with rear delts; they make your shoulders look round from the side'],
     donts:['Rounding your back on RDLs','Heavy overhead pressing today (your front shoulders already worked this week)','Rushing laterals because legs made you tired','Skipping the calf work']}
 };
 const ORDER=['push','pull','legs','upper','lower'];
-const ALL_EX=ORDER.flatMap(d=>PROGRAM[d].ex.map(e=>Object.assign(e,{day:d})));
+const ALL_EX=ORDER.flatMap(d=>PROGRAM[d].ex.map(e=>Object.assign(e,{day:d}))).filter((e,i,a)=>a.findIndex(x=>x.k===e.k)===i);
 const EX_BY_KEY=Object.fromEntries(ALL_EX.map(e=>[e.k,e]));
 const WEEKDAY={6:'push',0:'pull',1:'legs',2:'rest',3:'upper',4:'lower',5:'rest'};
 const LEGACY_DAY={pushA:'push',pullA:'pull',legsA:'legs',pushB:'upper',pullB:'upper',legsB:'lower'};
