@@ -557,7 +557,6 @@ footer{border-top:1px solid var(--line);padding:40px 0 50px}
   <div class="wrap">
     <div class="hero-grid">
       <div>
-        <div class="tag fade-in" style="animation-delay:1.3s"><span class="dot"><i></i></span><span id="todayTag">Day 1 starts Saturday</span></div>
         <h1><span class="line"><span>Better</span></span><span class="line"><span class="bigv">1%<span class="serif"> daily.</span></span></span></h1>
         <p class="lede fade-in" style="animation-delay:1.55s">I'm Siam. I study Computer Engineering in Barishal, I'm building eReport, and I want to be in the top 1%. That needs a body that can keep up. So the plan is simple: <b>one more rep, one more egg, one more hour of sleep. Every day.</b></p>
         <div class="cta-row fade-in" style="animation-delay:1.7s">
@@ -909,7 +908,6 @@ let NEXT=TODAY;for(let i=0;i<7;i++){const d=(TODAY+i)%7;if(isTrain(d)){NEXT=d;br
 const nextName=NEXT===TODAY?'Today':(NEXT===(TODAY+1)%7?'Tomorrow':FULL[NEXT]);
 
 /* hero tag + final CTA */
-$('#todayTag').textContent=isTrain(TODAY)?`Today is ${titleOf(TODAY).toLowerCase()}. 1% better than last week.`:`${FULL[TODAY]}: ${TODAY===5?'gym closed, check-in day':'active rest'} · ${nextName.toLowerCase()} is ${LABEL[MAP[NEXT]].toLowerCase()}`;
 $('#heroCta').href=`app.html#day-${SLUG[NEXT]}`;
 $('#dayOne').textContent=NEXT===TODAY?'today':FULL[NEXT];
 $('#nextTxt').textContent=`Next session: ${nextName} · ${titleOf(NEXT)}`;
