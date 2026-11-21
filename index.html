@@ -11,7 +11,11 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="Better 1% · Get 1% better every day">
 <meta property="og:description" content="Answer a few questions, get your own training plan, food targets and habits. Free. One rule: never miss twice.">
-<meta property="og:image" content="https://dedsecisamood.github.io/siams-fitness/og.jpg">
+<meta property="og:image" content="https://dedsecisamood.github.io/siams-fitness/og.jpg?v=2">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Better 1%: Not tomorrow. Today.">
+<link rel="canonical" href="https://dedsecisamood.github.io/siams-fitness/">
 <meta property="og:url" content="https://dedsecisamood.github.io/siams-fitness/">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="icon-192.png" type="image/png">
@@ -26,7 +30,7 @@
 :root{
   --bg:#07050c;--bg2:#0b0811;--card:#100d17;--card2:#17131f;
   --line:rgba(255,255,255,.08);--line2:rgba(255,255,255,.14);
-  --ink:#f5f5f7;--ink2:#c7c7cc;--muted:#8a8a93;--dim:#5a5a63;
+  --ink:#f5f5f7;--ink2:#c7c7cc;--muted:#8a8a93;--dim:#76727f;
   --red:#fa114f;--orange:#ff6a3d;--amber:#ffb340;--green:#a3f04a;--cyan:#1ed8f5;--violet:#8b7cff;
   --grad:linear-gradient(100deg,#a855ff 0%,#ec4899 55%,#ff9f43 100%);--hot:#e879f9;
   --display:"Inter Tight",-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",Roboto,sans-serif;
@@ -658,7 +662,7 @@ footer{border-top:1px solid var(--line);padding:40px 0 50px}
           <a class="btn btn-hot mag" href="app.html" data-auth="in" hidden>Open my app <span class="arr">→</span></a>
           <a class="btn btn-ghost mag" href="#login" data-auth="out">Log in</a>
         </div>
-        <p class="hero-note fade-in" style="animation-delay:1.85s">Free forever. No ads. No email. Just a username and a PIN.</p>
+        <p class="hero-note fade-in" style="animation-delay:1.85s">Free. No ads. No email. Just a username and a PIN.</p>
       </div>
       <div class="phone-stage" id="stage" aria-hidden="true">
         <div class="phone" id="phone">
@@ -709,7 +713,7 @@ footer{border-top:1px solid var(--line);padding:40px 0 50px}
 </div>
 
 <!-- ROADMAP -->
-<section class="sec" id="roadmap">
+<section class="sec" id="roadmap" style="padding-top:clamp(56px,7vw,96px)">
   <div class="wrap">
     <span class="kicker mono" data-r>12 months</span>
     <h2 class="words" data-split>One year.<br><span class="serif grad">Four chapters.</span></h2>
@@ -932,6 +936,7 @@ footer{border-top:1px solid var(--line);padding:40px 0 50px}
       <details class="qa"><summary>No protein powder? For real?<span class="pm"></span></summary><div class="ans">For real. Eggs, dal, chola, soya chunks, chicken, fish, milk, oats and peanuts get most people to their target. Ten recipes, 16 to 34 g of protein each, filtered for what you eat.</div></details>
       <details class="qa"><summary>I missed a day. Now what?<span class="pm"></span></summary><div class="ans">Nothing dramatic. Do the next session in order the next time you train. Never cram two into one day. Miss once, that's life. Miss twice, that's a habit. That's the line.</div></details>
       <details class="qa"><summary>Who can see my data?<span class="pm"></span></summary><div class="ans">Only you. You log in with your own username and PIN, and your plan and logs live in your account. Delete everything any time in Settings.</div></details>
+      <details class="qa"><summary>What do you store, and where?<span class="pm"></span></summary><div class="ans">Only what your plan needs: your username, first name, optional photo, your answers (days, goal, body numbers, food, injuries) and the logs you add. It lives in a private database (Supabase) that only your account can read. No email, no phone number, no analytics, and nothing is ever sold. Delete your account in Settings and every row goes with it.</div></details>
       <details class="qa"><summary>I forgot my PIN.<span class="pm"></span></summary><div class="ans">Ask Siam to reset it. There's no email on your account, so it's done by hand.</div></details>
       <details class="qa"><summary>I have an injury. Is this safe?<span class="pm"></span></summary><div class="ans">Tell us in the questions and your plan skips the riskiest moves for that area. Better 1% is general fitness guidance, not medical advice. If something hurts, stop, and see a doctor or physio.</div></details>
       <details class="qa"><summary>How do I put it on my phone?<span class="pm"></span></summary><div class="ans">Open the app in Safari or Chrome and choose <b>Add to Home Screen</b>. It opens full-screen like a real app, and your logs sync to your account on every device.</div></details>
