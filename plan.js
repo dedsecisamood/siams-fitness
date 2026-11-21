@@ -293,7 +293,20 @@ function blocked(tags,food){
   return t.some(x=>no.has(x));
 }
 
+const esc1=t=>String(t).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 G.B1={EXI,EQN,NEW_EX,WEEK,DAY_SHORT,HABITS,HABIT_ORDER,REST_TEXT,RECIPE_TAGS,FOOD_TAGS,SPLIT_NAME,buildPlan,targets,blocked,
+  /* Profile photo: crop to a centred square and shrink to a small JPEG data URL */
+  squareImage(file,size){size=size||192;return new Promise((res,rej)=>{
+    if(!file||!/^image\//.test(file.type||''))return rej(new Error('Pick an image file.'));
+    if(file.size>15e6)return rej(new Error('That photo is too big. Try another one.'));
+    const url=URL.createObjectURL(file),img=new Image();
+    img.onload=()=>{try{const s=Math.min(img.naturalWidth,img.naturalHeight),c=document.createElement('canvas');c.width=c.height=size;
+      const x=c.getContext('2d');x.imageSmoothingQuality='high';x.drawImage(img,(img.naturalWidth-s)/2,(img.naturalHeight-s)/2,s,s,0,0,size,size);
+      URL.revokeObjectURL(url);res(c.toDataURL('image/jpeg',.82))}catch(e){rej(e)}};
+    img.onerror=()=>{URL.revokeObjectURL(url);rej(new Error('Couldn’t read that photo. Try a JPG or PNG.'))};img.src=url})},
+  okAvatar(s){return typeof s==='string'&&(s==='logo.webp'||(/^data:image\/(jpeg|png|webp);base64,[A-Za-z0-9+/=]+$/.test(s)&&s.length<80000))},
+  initialAvatar(name){const ch=esc1(String(name||'?').trim().charAt(0).toUpperCase()||'?');
+    return 'data:image/svg+xml;utf8,'+encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#a855ff"/><stop offset=".55" stop-color="#ec4899"/><stop offset="1" stop-color="#ff9f43"/></linearGradient></defs><rect width="64" height="64" rx="32" fill="url(#g)"/><text x="32" y="42" font-family="Inter,Arial,sans-serif" font-size="28" font-weight="800" fill="#fff" text-anchor="middle">${ch}</text></svg>`)},
   /* Username + PIN login, mapped onto Supabase email/password */
   userEmail(u){return String(u||'').trim().toLowerCase()+'@users.better1.app'},
   userFromEmail(e){return String(e||'').split('@')[0]},

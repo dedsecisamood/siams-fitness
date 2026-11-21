@@ -450,7 +450,7 @@ td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
 <header class="top">
   <div class="top-in">
     <a class="brand" href="index.html" aria-label="Better 1% home page">
-      <img src="logo.webp" alt="" width="28" height="28" style="width:28px;height:28px;border-radius:50%;object-fit:cover;box-shadow:0 0 0 2px rgba(168,85,255,.5)">
+      <img src="logo.webp" alt="" id="meAvatar" width="28" height="28" style="width:28px;height:28px;border-radius:50%;object-fit:cover;box-shadow:0 0 0 2px rgba(168,85,255,.5)">
       <span>Better 1%</span>
     </a>
     <nav class="seg" id="topnav" aria-label="Sections"></nav>
@@ -488,6 +488,10 @@ td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
       <label class="lbl" for="setKcal">Calorie target (blank = phase default)
         <input class="field" type="number" id="setKcal" min="1200" max="5000" step="50" placeholder="Phase default">
       </label>
+    </div>
+    <div class="row" style="align-items:center;gap:14px">
+      <img id="setAvatar" src="logo.webp" alt="Your profile photo" width="56" height="56" style="width:56px;height:56px;border-radius:50%;object-fit:cover;box-shadow:0 0 0 2px rgba(168,85,255,.45)">
+      <div class="row" style="gap:8px"><label class="btn ghost sm" style="cursor:pointer">Change photo<input type="file" id="setPhoto" accept="image/*" hidden></label><button class="btn ghost sm" type="button" id="rmPhoto">Remove</button></div>
     </div>
     <label class="lbl" for="setName">Your first name
       <input class="field" type="text" id="setName" maxlength="60" autocomplete="given-name">
@@ -2116,7 +2120,7 @@ async function boot(){
     else{location.replace('index.html#start');return}
   }
   try{localStorage.setItem('b1-profile-'+UID,JSON.stringify(prof))}catch(e){}
-  PROFILE=prof;NAME=(prof.display_name||'').split(' ')[0];
+  PROFILE=prof;NAME=(prof.display_name||'').split(' ')[0];paintAvatar();
   applyPlan(prof.plan);
   loadLocal();
   startKey();
@@ -2137,11 +2141,19 @@ async function deleteAccount(btn){
   window.__b1leaving=1;try{await sbc().auth.signOut({scope:'local'})}catch(e){}
   location.replace('index.html#deleted');
 }
+function avatarSrc(){const a=PROFILE&&PROFILE.avatar;return B1.okAvatar(a)?a:B1.initialAvatar(NAME||(PROFILE&&PROFILE.display_name)||'')}
+function paintAvatar(){const s=avatarSrc();['#meAvatar','#setAvatar'].forEach(id=>{const el=$(id);if(el)el.src=s})}
+async function saveAvatar(v){
+  const r=await sbc().from('profiles').update({avatar:v}).eq('id',UID);
+  if(r.error){toast('Couldn’t save your photo. Check your connection.');return}
+  PROFILE.avatar=v;try{localStorage.setItem('b1-profile-'+UID,JSON.stringify(PROFILE))}catch(e){}paintAvatar();toast(v?'Photo updated':'Photo removed')}
+$('#setPhoto').addEventListener('change',async e=>{const f=e.target.files&&e.target.files[0];e.target.value='';if(!f)return;try{await saveAvatar(await B1.squareImage(f))}catch(x){toast((x&&x.message)||'Couldn’t use that photo')}});
+$('#rmPhoto').addEventListener('click',()=>saveAvatar(null));
 async function saveName(){
   const v=($('#setName').value||'').trim().slice(0,60);
   if(v===(PROFILE.display_name||''))return;
   const r=await sbc().from('profiles').update({display_name:v}).eq('id',UID);
-  if(!r.error){PROFILE.display_name=v;NAME=v.split(' ')[0];try{localStorage.setItem('b1-profile-'+UID,JSON.stringify(PROFILE))}catch(e){}}
+  if(!r.error){PROFILE.display_name=v;NAME=v.split(' ')[0];try{localStorage.setItem('b1-profile-'+UID,JSON.stringify(PROFILE))}catch(e){}paintAvatar()}
 }
 
 /* ---------- Boot ---------- */

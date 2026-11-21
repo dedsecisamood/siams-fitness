@@ -545,6 +545,10 @@ footer{border-top:1px solid var(--line);padding:40px 0 50px}
 .hero-kick i{width:8px;height:8px;border-radius:50%;background:#ff6a3d;animation:kpulse 1.8s infinite}
 @keyframes kpulse{0%{box-shadow:0 0 0 0 rgba(255,106,61,.6)}70%{box-shadow:0 0 0 10px rgba(255,106,61,0)}100%{box-shadow:0 0 0 0 rgba(255,106,61,0)}}
 .hero-note{margin-top:16px;font-size:14px;color:var(--muted)}
+.avpick{display:flex;align-items:center;gap:14px;padding:12px 14px;border-radius:18px;background:rgba(255,255,255,.04);border:1px solid var(--line2)}
+.avpick img{width:56px;height:56px;border-radius:50%;object-fit:cover;flex:none;box-shadow:0 0 0 2px rgba(168,85,255,.45)}
+.avpick div{flex:1;min-width:0}.avpick b{display:block;font-size:15px}.avpick span{font-size:13px;color:var(--muted)}
+.avpick .btn span{color:inherit;font-size:inherit}
 /* responsive */
 @media (max-width:1080px){
   .nav-links{display:none}
@@ -704,39 +708,14 @@ footer{border-top:1px solid var(--line);padding:40px 0 50px}
   </div>
 </div>
 
-<!-- WHY 1% -->
-<section class="method" id="why">
-  <div class="wrap" style="padding-top:clamp(100px,12vw,160px)">
-    <span class="kicker mono" data-r>The math nobody shows you</span>
-    <h2 class="words" data-split>1% a day is 37 times<br><span class="serif grad">in one year.</span></h2>
-    <p class="sub" data-r style="--d:.2s">Get 1% better every day and you end the year 37.8 times better. Slip 1% a day and you end it at 0.03. Nobody notices your first 100 days. Everybody notices day 365. Scroll and watch the year happen.</p>
-  </div>
-  <div class="vpin" id="vpin">
-    <div class="vstick">
-      <div class="wrap vgrid">
-        <div class="torso-box">
-          <svg viewBox="0 0 400 420" id="cchart" aria-label="Chart: 1.01 to the power of days grows to 37.8 in a year, 0.99 falls to 0.03">
-            <defs>
-              <linearGradient id="cFill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#a855ff" stop-opacity=".35"/><stop offset="1" stop-color="#a855ff" stop-opacity="0"/></linearGradient>
-              <radialGradient id="cGlow" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#a855ff" stop-opacity=".28"/><stop offset="1" stop-color="#a855ff" stop-opacity="0"/></radialGradient>
-            </defs>
-            <circle cx="300" cy="120" r="200" fill="url(#cGlow)"/>
-            <g id="cGrid"></g>
-            <path id="cArea" fill="url(#cFill)"/>
-            <path id="cDown" class="chart-line" stroke="rgba(250,17,79,.75)" stroke-width="2.5"/>
-            <path id="cUp" class="chart-line" stroke="url(#gHot)"/>
-            <circle id="cHead" r="7" fill="#fff" stroke="#ec4899" stroke-width="4"/>
-            <text id="cUpLbl" class="axis" fill="#e879f9" style="fill:#e879f9">1.01ⁿ</text>
-            <text id="cDnLbl" class="axis" style="fill:#fa114f">0.99ⁿ</text>
-          </svg>
-          <div class="ratio"><b id="ratio">1.00×</b><span class="mono" id="dayLbl">Day 0 of 365</span></div>
-        </div>
-        <div class="steps" id="steps">
-          <div class="step on"><span class="num">01 · TRAIN</span><h3>One more rep</h3><p>Beat last week by one rep or 2.5 kg. That's the whole game. No ego lifts. No random workout from a reel. Just a number that keeps going up.</p><div class="bar"><i></i></div></div>
-          <div class="step"><span class="num">02 · EAT</span><h3>One more egg</h3><p>Hit your protein with real food: eggs, dal, chicken, fish, soya. Less oil, fewer fried snacks, zero powder. Calories set for your goal, not your friend's.</p><div class="bar"><i></i></div></div>
-          <div class="step"><span class="num">03 · RECOVER</span><h3>One more hour</h3><p>Muscle is built in bed, not in the gym. Sleep 7+ hours, walk 7,000 steps, and live by one rule: never miss twice. Classes, work and lifting all run on the same battery.</p><div class="bar"><i></i></div></div>
-        </div>
-      </div>
+<!-- ROADMAP -->
+<section class="sec" id="roadmap">
+  <div class="wrap">
+    <span class="kicker mono" data-r>12 months</span>
+    <h2 class="words" data-split>One year.<br><span class="serif grad">Four chapters.</span></h2>
+    <p class="sub" data-r style="--d:.15s">Every chapter ends with a gate. Pass it and your plan levels up. Twelve months from now, the person in your Day 1 photo won't recognize you.</p>
+    <div class="road" id="road">
+      <div class="road-line"><i id="roadFill"></i></div>
     </div>
   </div>
 </section>
@@ -871,14 +850,39 @@ footer{border-top:1px solid var(--line);padding:40px 0 50px}
   <div class="wrap"><p id="maniText">Motivation gets you to the gym once. Habits get you there for a year. You don't need a perfect week. You need <span class="serif">fifty-two</span> good ones. Show up. Do one more. Sleep. Repeat. You can do it.</p></div>
 </section>
 
-<!-- ROADMAP -->
-<section class="sec" id="roadmap" style="padding-top:0">
-  <div class="wrap">
-    <span class="kicker mono" data-r>12 months</span>
-    <h2 class="words" data-split>One year.<br><span class="serif grad">Four chapters.</span></h2>
-    <p class="sub" data-r style="--d:.15s">Every chapter ends with a gate. Pass it and your plan levels up. Twelve months from now, the person in your Day 1 photo won't recognize you.</p>
-    <div class="road" id="road">
-      <div class="road-line"><i id="roadFill"></i></div>
+<!-- WHY 1% -->
+<section class="method" id="why">
+  <div class="wrap" style="padding-top:clamp(100px,12vw,160px)">
+    <span class="kicker mono" data-r>The math nobody shows you</span>
+    <h2 class="words" data-split>1% a day is 37 times<br><span class="serif grad">in one year.</span></h2>
+    <p class="sub" data-r style="--d:.2s">Get 1% better every day and you end the year 37.8 times better. Slip 1% a day and you end it at 0.03. Nobody notices your first 100 days. Everybody notices day 365. Scroll and watch the year happen.</p>
+  </div>
+  <div class="vpin" id="vpin">
+    <div class="vstick">
+      <div class="wrap vgrid">
+        <div class="torso-box">
+          <svg viewBox="0 0 400 420" id="cchart" aria-label="Chart: 1.01 to the power of days grows to 37.8 in a year, 0.99 falls to 0.03">
+            <defs>
+              <linearGradient id="cFill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#a855ff" stop-opacity=".35"/><stop offset="1" stop-color="#a855ff" stop-opacity="0"/></linearGradient>
+              <radialGradient id="cGlow" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#a855ff" stop-opacity=".28"/><stop offset="1" stop-color="#a855ff" stop-opacity="0"/></radialGradient>
+            </defs>
+            <circle cx="300" cy="120" r="200" fill="url(#cGlow)"/>
+            <g id="cGrid"></g>
+            <path id="cArea" fill="url(#cFill)"/>
+            <path id="cDown" class="chart-line" stroke="rgba(250,17,79,.75)" stroke-width="2.5"/>
+            <path id="cUp" class="chart-line" stroke="url(#gHot)"/>
+            <circle id="cHead" r="7" fill="#fff" stroke="#ec4899" stroke-width="4"/>
+            <text id="cUpLbl" class="axis" fill="#e879f9" style="fill:#e879f9">1.01ⁿ</text>
+            <text id="cDnLbl" class="axis" style="fill:#fa114f">0.99ⁿ</text>
+          </svg>
+          <div class="ratio"><b id="ratio">1.00×</b><span class="mono" id="dayLbl">Day 0 of 365</span></div>
+        </div>
+        <div class="steps" id="steps">
+          <div class="step on"><span class="num">01 · TRAIN</span><h3>One more rep</h3><p>Beat last week by one rep or 2.5 kg. That's the whole game. No ego lifts. No random workout from a reel. Just a number that keeps going up.</p><div class="bar"><i></i></div></div>
+          <div class="step"><span class="num">02 · EAT</span><h3>One more egg</h3><p>Hit your protein with real food: eggs, dal, chicken, fish, soya. Less oil, fewer fried snacks, zero powder. Calories set for your goal, not your friend's.</p><div class="bar"><i></i></div></div>
+          <div class="step"><span class="num">03 · RECOVER</span><h3>One more hour</h3><p>Muscle is built in bed, not in the gym. Sleep 7+ hours, walk 7,000 steps, and live by one rule: never miss twice. Classes, work and lifting all run on the same battery.</p><div class="bar"><i></i></div></div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -1258,7 +1262,7 @@ const wiz=$('#wiz'),wBody=$('#wBody'),wErr=$('#wErr'),wNext=$('#wNext');
 const DEF={name:'',goal:'',exp:'',days:[],minutes:60,where:'',sex:'',age:'',height:'',weight:'',hUnit:'cm',ft:'',inch:'',injuries:[],diet:'all',allergies:[],habits:['sleep','water','steps','meals']};
 let A=Object.assign({},DEF,store.get('b1-answers',{})),step=0,REDO=false,busy=false;
 delete A._email;
-const save=()=>{const c=Object.assign({},A);delete c._user;store.set('b1-answers',c)};
+const save=()=>{const c=Object.assign({},A);delete c._user;delete c._photo;store.set('b1-answers',c)};
 const opt=(key,v,b,s)=>`<button type="button" class="opt" data-k="${key}" data-v="${v}" aria-pressed="${String(A[key])===String(v)}"><span class="tick">✓</span><span><b>${b}</b>${s?`<small>${s}</small>`:''}</span></button>`;
 const chip=(key,v,t)=>`<button type="button" class="wchip" data-m="${key}" data-v="${v}" aria-pressed="${(A[key]||[]).map(String).includes(String(v))}">${t}</button>`;
 const head=(k,h,p)=>`<span class="kicker mono">${k}</span><h3>${h}</h3>${p?`<p class="muted">${p}</p>`:''}`;
@@ -1292,12 +1296,15 @@ const STEPS=[
    <div class="pv-ex"><h4>${esc(w.title)}</h4><ul>${w.ex.map(e=>{const x=B1.EXI[e.k];return `<li>${esc(x.n)}<span>${x.r[0]}–${x.r[1]} ${/Reps are seconds/.test(x.c)?'sec':'reps'}</span></li>`}).join('')}</ul></div>
    ${p.notes.map(n=>`<p class="pv-note">${esc(n)}</p>`).join('')}`},ok:()=>''},
  {id:'account',skipIf:()=>REDO,r:()=>head('Last step','Lock in your plan','Pick a username and a 4 to 6 digit PIN. That’s your login. No email needed.')+
-   `<div class="wgrid"><label class="fl full">Username<input id="qUser" autocomplete="username" autocapitalize="off" spellcheck="false" maxlength="20" placeholder="e.g. ${esc((A.name||'rafi').replace(/[^A-Za-z0-9_.]/g,'').slice(0,20)||'rafi')}" value="${esc(A._user||'')}"></label>
+   `<div class="wgrid"><div class="full avpick"><img id="qAv" src="${A._photo||B1.initialAvatar(A.name)}" alt="Your photo preview" width="64" height="64"><div><b>Your photo</b><span>Optional. It shows up in your app.</span></div><label class="btn btn-ghost btn-sm" style="cursor:pointer"><span id="qAvL">${A._photo?'Change':'Add photo'}</span><input type="file" id="qPhoto" accept="image/*" hidden></label></div>
+   <label class="fl full">Username<input id="qUser" autocomplete="username" autocapitalize="off" spellcheck="false" maxlength="20" placeholder="e.g. ${esc((A.name||'rafi').replace(/[^A-Za-z0-9_.]/g,'').slice(0,20)||'rafi')}" value="${esc(A._user||'')}"></label>
    <label class="fl">PIN<input type="password" id="qPass" inputmode="numeric" autocomplete="new-password" maxlength="6" placeholder="4 to 6 digits"></label>
    <label class="fl">Repeat PIN<input type="password" id="qPass2" inputmode="numeric" autocomplete="new-password" maxlength="6" placeholder="Same again"></label>
    <label class="chk full"><input type="checkbox" id="qOk"><span>Got it: Better 1% is a free test app, not medical advice. My plan and logs stay in my private account, and I can delete it any time.</span></label></div>
    <p class="muted" style="margin-top:14px;font-size:14px">Already have an account? <a href="#login" class="grad" style="font-weight:600">Log in</a></p>`,
-  after:()=>['#qPass','#qPass2'].forEach(id=>$(id).addEventListener('input',e=>{e.target.value=e.target.value.replace(/[^0-9]/g,'').slice(0,6)})),
+  after:()=>{['#qPass','#qPass2'].forEach(id=>$(id).addEventListener('input',e=>{e.target.value=e.target.value.replace(/[^0-9]/g,'').slice(0,6)}));
+    $('#qPhoto').addEventListener('change',async e=>{const f=e.target.files&&e.target.files[0];e.target.value='';if(!f)return;
+      try{A._photo=await B1.squareImage(f);$('#qAv').src=A._photo;$('#qAvL').textContent='Change';wErr.textContent=''}catch(x){wErr.textContent=(x&&x.message)||'Couldn’t use that photo.'}})},
   read:()=>{A._user=$('#qUser').value.trim()},
   ok:()=>!B1.okUser(A._user)?USER_RULE:!B1.okPin($('#qPass').value)?PIN_RULE:$('#qPass').value!==$('#qPass2').value?'The two PINs don’t match.':!$('#qOk').checked?'Tick the box to continue.':''}
 ];
@@ -1342,7 +1349,7 @@ async function signUp(){
     if(error)throw error;
     if(data&&data.user&&Array.isArray(data.user.identities)&&!data.user.identities.length)throw new Error('already registered');
     if(!data.session)throw new Error('Account made, but sign-in is waiting for approval. Ask Siam.');
-    const r=await sb.from('profiles').upsert({id:data.session.user.id,display_name:a.name,answers:a,plan});
+    const r=await sb.from('profiles').upsert({id:data.session.user.id,display_name:a.name,answers:a,plan,avatar:B1.okAvatar(A._photo)?A._photo:null});
     if(r.error)console.warn(r.error);/* the app retries from the account metadata */
     try{await sb.rpc('claim_seed_plan')}catch(x){}
     store.del('b1-answers');wNext.textContent='Opening your plan…';location.href='app.html';

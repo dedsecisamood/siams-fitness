@@ -97,3 +97,10 @@ begin
 end $$;
 revoke execute on function public.take_seed_legacy() from public, anon;
 grant execute on function public.take_seed_legacy() to authenticated;
+
+-- Profile photos (small square JPEG data URLs, or 'logo.webp' for the founder's account).
+alter table public.profiles add column if not exists avatar text;
+alter table public.profiles drop constraint if exists profiles_avatar_size;
+alter table public.profiles add constraint profiles_avatar_size check (avatar is null or length(avatar) < 80000);
+alter table public.seed_plans add column if not exists avatar text;
+-- claim_seed_plan() also copies seed_plans.avatar into the new profile.
