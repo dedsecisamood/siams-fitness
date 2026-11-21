@@ -1982,7 +1982,7 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!$('#modal').hidden
 $('#saveSettings').addEventListener('click',()=>{const st=$('#setStart').value;if(st)S.settings.start=st;const p=num($('#setProtein').value);if(p)S.settings.protein=clamp(Math.round(p),60,300);const kc=num($('#setKcal').value);S.settings.kcal=kc?clamp(Math.round(kc),1200,5000):null;persist('settings');saveName();$('#modal').hidden=true;toast('Settings saved');render(false)});
 $('#signOut').addEventListener('click',signOut);
 $('#deleteAcct').addEventListener('click',e=>deleteAccount(e.currentTarget));
-$('#legacyYes').addEventListener('click',importLegacy);
+$('#legacyYes').addEventListener('click',()=>importLegacy());
 $('#legacyNo').addEventListener('click',skipLegacy);
 $('#copyData').addEventListener('click',async()=>{try{await navigator.clipboard.writeText(JSON.stringify(S));toast('Copied. Paste it into a note to keep it safe.')}catch(e){const b=$('#importBox');b.value=JSON.stringify(S);b.select();toast('Select and copy the text in the box')}});
 $('#planFile').addEventListener('change',async e=>{const f=e.target.files&&e.target.files[0];e.target.value='';if(!f)return;
@@ -2068,25 +2068,27 @@ async function initCloud(){
 /* Data saved on this device before accounts existed */
 function legacyCheck(seen){
   try{
+    if(PLAN&&PLAN.custom&&!localStorage.getItem('b1-seedlegacy-'+UID))sbc().rpc('take_seed_legacy').then(r=>{try{localStorage.setItem('b1-seedlegacy-'+UID,'1')}catch(e){}if(r&&r.data&&typeof r.data==='object')importLegacy(r.data,true)}).catch(()=>{});
     const raw=localStorage.getItem('vtaper-coach-v1');
     if(!raw||localStorage.getItem('b1-legacy-done-'+UID))return;
     const o=JSON.parse(raw),n=Object.keys(o.sessions||{}).length+Object.keys(o.diet||{}).length+((o.body&&o.body.entries)||[]).length;
     if(!n){localStorage.setItem('b1-legacy-done-'+UID,'1');return}
+    if(PLAN&&PLAN.custom){importLegacy(null,true);return}/* personal pre-loaded plan: bring the old logs in without asking */
     $('#legacyText').textContent=`This device has ${plural(Object.keys(o.sessions||{}).length,'workout')} and ${plural(Object.keys(o.diet||{}).length,'food day')} saved from before accounts existed. Add them to your account?`;
     $('#legacy').hidden=false;
   }catch(e){}
 }
-function importLegacy(){
+function importLegacy(src,quiet){
   try{
-    const o=JSON.parse(localStorage.getItem('vtaper-coach-v1')||'{}');
+    const o=src||JSON.parse(localStorage.getItem('vtaper-coach-v1')||'{}');
     if(o.settings)S.settings=Object.assign(defaultSettings(),S.settings,o.settings,{protein:o.settings.protein&&o.settings.protein!==150?o.settings.protein:S.settings.protein});
     if(o.body&&o.body.entries)S.body={entries:[...S.body.entries,...o.body.entries.filter(e=>!S.body.entries.some(x=>x.date===e.date))]};
     Object.entries(o.sessions||{}).forEach(([k,v])=>{if(!S.sessions[k])S.sessions[k]=normSession(v)});
     Object.entries(o.diet||{}).forEach(([k,v])=>{if(!S.diet[k])S.diet[k]=v});
     if(o.habits&&!S.habits)S.habits=o.habits;
     allIds().forEach(id=>persist(id));
-    localStorage.setItem('b1-legacy-done-'+UID,'1');
-    $('#legacy').hidden=true;toast('Imported. It’s now saved to your account.');render(true);
+    if(!src)localStorage.setItem('b1-legacy-done-'+UID,'1');
+    $('#legacy').hidden=true;toast(quiet?'Your old data is in your account.':'Imported. It’s now saved to your account.');render(true);
   }catch(e){toast('Couldn’t import that data')}
 }
 function skipLegacy(){try{localStorage.setItem('b1-legacy-done-'+UID,'1')}catch(e){}$('#legacy').hidden=true}

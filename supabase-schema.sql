@@ -71,3 +71,29 @@ begin
 end $$;
 revoke execute on function public.claim_seed_plan() from public, anon;
 grant execute on function public.claim_seed_plan() to authenticated;
+
+-- First log-in for a pre-loaded username: lets the log-in form know the account
+-- is waiting to be set up, and hands over the old on-device data once.
+alter table public.seed_plans add column if not exists legacy jsonb;
+alter table public.seed_plans add column if not exists legacy_taken_at timestamptz;
+
+create or replace function public.seed_available(u text) returns boolean
+language sql stable security definer set search_path = '' as $$
+  select exists(select 1 from public.seed_plans where username = lower(trim(u)) and claimed_at is null);
+$$;
+revoke execute on function public.seed_available(text) from public;
+grant execute on function public.seed_available(text) to anon, authenticated;
+
+create or replace function public.take_seed_legacy() returns jsonb
+language plpgsql security definer set search_path = '' as $$
+declare u text; l jsonb;
+begin
+  if auth.uid() is null then return null; end if;
+  select lower(split_part(email, '@', 1)) into u from auth.users where id = auth.uid();
+  update public.seed_plans set legacy_taken_at = now()
+    where username = u and claimed_at is not null and legacy is not null and legacy_taken_at is null
+    returning legacy into l;
+  return l;
+end $$;
+revoke execute on function public.take_seed_legacy() from public, anon;
+grant execute on function public.take_seed_legacy() to authenticated;

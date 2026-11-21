@@ -624,7 +624,7 @@ footer{border-top:1px solid var(--line);padding:40px 0 50px}
 <header class="nav" id="nav">
   <a class="brand" href="#top" aria-label="Better 1% home"><img src="logo.webp" alt=""><span>Better <b>1%</b></span></a>
   <nav class="nav-links" aria-label="Sections">
-    <a href="#why">Why 1%</a><a href="#week">Your plan</a><a href="#inside">The app</a><a href="#fuel">Food</a><a href="#roadmap">12 months</a><a href="#faq">FAQ</a>
+    <a href="#roadmap">12 months</a><a href="#week">Your plan</a><a href="#inside">The app</a><a href="#fuel">Food</a><a href="#faq">FAQ</a>
   </nav>
   <div style="display:flex;gap:8px;align-items:center">
     <a class="btn btn-ghost btn-sm" href="#login" data-auth="out">Log in</a>
@@ -634,7 +634,7 @@ footer{border-top:1px solid var(--line);padding:40px 0 50px}
   </div>
 </header>
 <nav class="mmenu" id="mmenu" aria-label="Mobile">
-  <a href="#why">Why 1%</a><a href="#week">Your plan</a><a href="#inside">The app</a><a href="#fuel">Food</a><a href="#login" data-auth="out">Log in</a><a href="#start" class="grad" data-auth="out">Start free →</a><a href="app.html" class="grad" data-auth="in" hidden>Open my app →</a>
+  <a href="#roadmap">12 months</a><a href="#week">Your plan</a><a href="#inside">The app</a><a href="#fuel">Food</a><a href="#login" data-auth="out">Log in</a><a href="#start" class="grad" data-auth="out">Start free →</a><a href="app.html" class="grad" data-auth="in" hidden>Open my app →</a>
 </nav>
 
 <main id="top">
@@ -959,7 +959,7 @@ footer{border-top:1px solid var(--line);padding:40px 0 50px}
   <div class="wrap">
     <div class="foot">
       <a class="brand" href="#top"><img src="logo.webp" alt=""><span>Better <b>1%</b></span></a>
-      <nav><a href="#why">Why 1%</a><a href="#week">Your plan</a><a href="#fuel">Food</a><a href="#faq">FAQ</a><a href="#login">Log in</a></nav>
+      <nav><a href="#roadmap">12 months</a><a href="#week">Your plan</a><a href="#fuel">Food</a><a href="#faq">FAQ</a><a href="#login">Log in</a></nav>
       <span>Made by <b>Abdullah Siam</b> · © <span id="yr">2026</span></span>
     </div>
     <div class="giant" aria-hidden="true">BETTER 1%</div>
@@ -1241,7 +1241,15 @@ $('#aForm').addEventListener('submit',async e=>{e.preventDefault();const err=$('
   if(!B1.okUser(user)){err.textContent=USER_RULE;$('#aEmail').focus();return}
   if(!B1.okPin(pin)){err.textContent=PIN_RULE;$('#aPass').focus();return}
   btn.disabled=true;btn.textContent='One sec…';
-  try{const {error}=await sb.auth.signInWithPassword({email:B1.userEmail(user),password:B1.pinPass(pin)});if(error)throw error;btn.textContent='Let’s go';location.href='app.html';return}
+  try{let {error}=await sb.auth.signInWithPassword({email:B1.userEmail(user),password:B1.pinPass(pin)});
+    if(error&&/invalid login|invalid credentials/i.test(error.message||'')){
+      /* a pre-loaded account that hasn't been opened yet: the first log-in sets it up with this PIN */
+      let ready=false;try{const r=await sb.rpc('seed_available',{u:user});ready=!!(r&&r.data===true)}catch(e){}
+      if(ready){btn.textContent='Setting up your account…';
+        const s=await sb.auth.signUp({email:B1.userEmail(user),password:B1.pinPass(pin),options:{data:{username:user}}});
+        if(s.error)throw s.error;if(!s.data||!s.data.session)throw new Error('Your account is waiting for approval. Ask Siam.');
+        const c=await sb.rpc('claim_seed_plan');if(c&&c.error)throw c.error;error=null}}
+    if(error)throw error;btn.textContent='Let’s go';location.href='app.html';return}
   catch(x){err.textContent=niceErr(x)}
   btn.disabled=false;btn.textContent='Log in'});
 
